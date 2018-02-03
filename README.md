@@ -56,11 +56,32 @@ localhost/cron/key1/MDMwN2Q3OGRiYmM4Y2RkOWZjNTBmMzA4MzViZDZiNjQ=/attacks/true
 
 e.g.
 
-*/2 * * * * wget -O - http://localhost/cron/key1/MDMwN2Q3OGRiYmM4Y2RkOWZjNTBmMzA4MzViZDZiNjQ=//attacks/true >/dev/null 2>&1
+*/2 * * * * wget -O - http://localhost/cron/key1/MDMwN2Q3OGRiYmM4Y2RkOWZjNTBmMzA4MzViZDZiNjQ=/attacks/true >/dev/null 2>&1
 
 https://en.wikipedia.org/wiki/Cron
 
 # Screenshots
+![Screenshot](screenshots/1.png)
+
+![Screenshot](screenshots/2.png)
+
+![Screenshot](screenshots/3.png)
+
+![Screenshot](screenshots/4.png)
+
+![Screenshot](screenshots/5.png)
+
+![Screenshot](screenshots/6.png)
+
+![Screenshot](screenshots/7.png)
+
+![Screenshot](screenshots/8.png)
+
+![Screenshot](screenshots/9.png)
+
+![Screenshot](screenshots/10.png)
+
+![Screenshot](screenshots/11.png)
 
 
 # Read about the journey
