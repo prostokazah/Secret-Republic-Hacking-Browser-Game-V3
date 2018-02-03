@@ -1,0 +1,79 @@
+Options -Indexes
+RewriteEngine on
+
+RewriteCond %{HTTPS} on
+RewriteRule (.*) http://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . index.php [L]
+
+# STRONG HTACCESS PROTECTION
+<Files ~ "^.*\.([Hh][Tt][Aa])">
+order allow,deny
+deny from all
+satisfy all
+</Files>
+
+
+# security
+
+<Limit PUT DELETE OPTIONS CONNECT>
+Order Allow,Deny
+Allow from localhost
+Allow from 127.0.0.1
+Deny from all
+</Limit>
+
+<Limit POST GET HEAD>
+Order Allow,Deny
+Allow from all
+Deny From "255.255.255.255"
+Deny From "0.0.0.0"
+Deny From "1.1.1.1"
+Deny From " "
+</Limit>
+
+ServerSignature Off
+
+#LimitRequestBody 1024
+
+
+
+DirectoryIndex index.html index.php index.php3 index.php4 index.php5 index.php6 index.phphtml
+
+Options All -Indexes -ExecCGI -MultiViews
+
+<FilesMatch "\.(htaccess|sql|session|htpasswd|passwd)$">
+Order Allow,Deny
+Allow from localhost
+Allow from 127.0.0.1
+Deny from all
+</FilesMatch>
+
+# Hmmm?!...
+<Files "robots.txt">
+Order Allow,Deny
+Allow from localhost
+Allow from 127.0.0.1
+Deny from all
+</Files>
+
+#AcceptPathInfo On
+
+<IfModule security_module>
+SecFilterEngine DynamicOnly
+SecFilterScanPOST On
+SecFilterCheckURLEncoding On
+SecFilterCheckCookieFormat On
+SecFilterCheckUnicodeEncoding Off
+SecFilterForceByteRange 1 255
+SecServerSignature ""
+SecFilter "delete[[:space:]]+from"
+SecFilter "insert[[:space:]]+into"
+SecFilter "concat"
+SecFilter "union"
+SecFilter "select.+from"
+SecFilter "select+*+from"
+</IfModule>

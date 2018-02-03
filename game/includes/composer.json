@@ -1,0 +1,20 @@
+{
+    "name": "nenuadrian/secretrepublic",
+    "description": "Version 3",
+    "type": "project",
+    "license": "CC BY-SA 3.0 License",
+    "authors": [
+        {
+            "name": "Adrian",
+            "email": "adrian.nenu@gmail.com"
+        }
+    ],
+    "require": {
+      "danielstjules/php-pretty-datetime": "dev-master",
+        "smarty/smarty": "^3.1",
+        "mobiledetect/mobiledetectlib": "^2.8",
+        "joshcam/mysqli-database-class": "dev-master",
+        "phpmailer/phpmailer": "^6.0",
+        "jbbcode/jbbcode": "^1.3"
+    }
+}
