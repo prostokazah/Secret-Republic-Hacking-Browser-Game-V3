@@ -1,7 +1,9 @@
 # SecretAlpha V3
 
 <p align="center">
+
 ![Cover](screenshots/cover.png)
+
 </p>
 
 See screenshots at the bottom.
