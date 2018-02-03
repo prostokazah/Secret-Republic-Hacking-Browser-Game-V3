@@ -1,4 +1,4 @@
-# SecretAlpha V3
+# Secret Republic - V3
 
 <p align="center">
 
