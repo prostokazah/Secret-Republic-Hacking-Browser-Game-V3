@@ -2,11 +2,11 @@
 
 <p align="center">
 
-![Cover](screenshots/cover.png)
+![Cover](screens/cover.png)
 
 </p>
 
-See screenshots at the bottom.
+See screens at the bottom.
 
 The code for the Secret Republic hacker simulation role playing game V3.
 
@@ -66,28 +66,28 @@ e.g.
 
 https://en.wikipedia.org/wiki/Cron
 
-# Screenshots
-![Screenshot](screenshots/1.png)
+# screens
+![Screenshot](screens/1.png)
 
-![Screenshot](screenshots/2.png)
+![Screenshot](screens/2.png)
 
-![Screenshot](screenshots/3.png)
+![Screenshot](screens/3.png)
 
-![Screenshot](screenshots/4.png)
+![Screenshot](screens/4.png)
 
-![Screenshot](screenshots/5.png)
+![Screenshot](screens/5.png)
 
-![Screenshot](screenshots/6.png)
+![Screenshot](screens/6.png)
 
-![Screenshot](screenshots/7.png)
+![Screenshot](screens/7.png)
 
-![Screenshot](screenshots/8.png)
+![Screenshot](screens/8.png)
 
-![Screenshot](screenshots/9.png)
+![Screenshot](screens/9.png)
 
-![Screenshot](screenshots/10.png)
+![Screenshot](screens/10.png)
 
-![Screenshot](screenshots/11.png)
+![Screenshot](screens/11.png)
 
 
 # Read about the journey
