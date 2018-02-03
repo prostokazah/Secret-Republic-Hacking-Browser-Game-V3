@@ -60,10 +60,6 @@ e.g.
 
 https://en.wikipedia.org/wiki/Cron
 
-# License
-
-Released under public common MIT license. Please credit and contribute back!
-
 # Screenshots
 
 
