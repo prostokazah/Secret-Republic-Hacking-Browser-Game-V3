@@ -1,14 +1,13 @@
 <?php
 
-if (!defined('cardinalSystem')) exit;	
+if (!defined('cardinalSystem')) exit;
 
 if ($GET["key1"] != "MDMwN2Q3OGRiYmM4Y2RkOWZjNTBmMzA4MzViZDZiNjQ=") $cardinal->show_404();
-if ($GET["key2"] != "M2U3OWRkZWQwNDY3MWIyMjEwZjkxZGQ2YjNiMDc5Zjg=" ) $cardinal->show_404();
 
     $runTime = time();
 	  $user = array();
     $insertLogs = true;
-    
+
     if ($GET["daily"])
       include("daily.php");
     elseif ($GET["hackdown"])
@@ -25,7 +24,7 @@ if ($GET["key2"] != "M2U3OWRkZWQwNDY3MWIyMjEwZjkxZGQ2YjNiMDc5Zjg=" ) $cardinal->
       include("tasks_and_attacks.php");
 	elseif ($GET["resources"])
       include("resources.php");
-    
+
     $insertData = array(
       "data" => $report,
       "created" => $runTime,
@@ -33,5 +32,3 @@ if ($GET["key2"] != "M2U3OWRkZWQwNDY3MWIyMjEwZjkxZGQ2YjNiMDc5Zjg=" ) $cardinal->
     );
     if ($insertLogs)
       $db->insert("debug_cron_logs", $insertData);
-
-		
