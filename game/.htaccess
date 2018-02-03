@@ -16,6 +16,9 @@ deny from all
 satisfy all
 </Files>
 
+<FilesMatch ^((composer|package)\.json$)$>
+    Deny from all
+</FilesMatch>
 
 # security
 
