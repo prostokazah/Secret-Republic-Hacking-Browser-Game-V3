@@ -2,7 +2,7 @@
 
 <p align="center">
 
-![Cover](screens/cover.png)
+![Cover](screens/cover.jpg)
 
 </p>
 
