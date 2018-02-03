@@ -1,4 +1,4 @@
-# SecretAlpha V4
+# SecretAlpha V3
 
 See screenshots at the bottom.
 
