@@ -30,29 +30,33 @@ Copy includes/database_info.template.php into includes/database_info.php and add
 
 Open includes/constants/constants.php and configure it if you want to setup email sending.
 
-Run 'composer install' and 'composer update' inside the 'includes' directory (more info about composer: https://getcomposer.org/)
+Run 'composer install' and 'composer update' (more info about composer: https://getcomposer.org/)
 
 Create an account through the signup form and set your group_id to 1 inside the user_credentials DB table to become a Cardinal (admin).
+
+# WARNING
+
+Game currently works only if it is at the root of the domain. eg not localhost/game but localhost
 
 # Cron jobs
 
 Set these up to run periodically as the parameters suggest. The resources one should run maybe every minute
 
-localhost/cron/key1/MDMwN2Q3OGRiYmM4Y2RkOWZjNTBmMzA4MzViZDZiNjQ=/key2/M2U3OWRkZWQwNDY3MWIyMjEwZjkxZGQ2YjNiMDc5Zjg=/attacks/true
+localhost/cron/key1/MDMwN2Q3OGRiYmM4Y2RkOWZjNTBmMzA4MzViZDZiNjQ=/attacks/true
 
-localhost/cron/key1/MDMwN2Q3OGRiYmM4Y2RkOWZjNTBmMzA4MzViZDZiNjQ=/key2/M2U3OWRkZWQwNDY3MWIyMjEwZjkxZGQ2YjNiMDc5Zjg=/hourly/true
+localhost/cron/key1/MDMwN2Q3OGRiYmM4Y2RkOWZjNTBmMzA4MzViZDZiNjQ=/hourly/true
 
-localhost/cron/key1/MDMwN2Q3OGRiYmM4Y2RkOWZjNTBmMzA4MzViZDZiNjQ=/key2/M2U3OWRkZWQwNDY3MWIyMjEwZjkxZGQ2YjNiMDc5Zjg=/daily/true
+localhost/cron/key1/MDMwN2Q3OGRiYmM4Y2RkOWZjNTBmMzA4MzViZDZiNjQ=/daily/true
 
-localhost/cron/key1/MDMwN2Q3OGRiYmM4Y2RkOWZjNTBmMzA4MzViZDZiNjQ=/key2/M2U3OWRkZWQwNDY3MWIyMjEwZjkxZGQ2YjNiMDc5Zjg=/hackdown/true
+localhost/cron/key1/MDMwN2Q3OGRiYmM4Y2RkOWZjNTBmMzA4MzViZDZiNjQ=/hackdown/true
 
-localhost/cron/key1/MDMwN2Q3OGRiYmM4Y2RkOWZjNTBmMzA4MzViZDZiNjQ=/key2/M2U3OWRkZWQwNDY3MWIyMjEwZjkxZGQ2YjNiMDc5Zjg=/rankings/true
+localhost/cron/key1/MDMwN2Q3OGRiYmM4Y2RkOWZjNTBmMzA4MzViZDZiNjQ/rankings/true
 
-localhost/cron/key1/MDMwN2Q3OGRiYmM4Y2RkOWZjNTBmMzA4MzViZDZiNjQ=/key2/M2U3OWRkZWQwNDY3MWIyMjEwZjkxZGQ2YjNiMDc5Zjg=/attacks/true
+localhost/cron/key1/MDMwN2Q3OGRiYmM4Y2RkOWZjNTBmMzA4MzViZDZiNjQ=/attacks/true
 
 e.g.
 
-*/2 * * * * wget -O - http://localhost/cron/key1/MDMwN2Q3OGRiYmM4Y2RkOWZjNTBmMzA4MzViZDZiNjQ=/key2/M2U3OWRkZWQwNDY3MWIyMjEwZjkxZGQ2YjNiMDc5Zjg=/attacks/true >/dev/null 2>&1
+*/2 * * * * wget -O - http://localhost/cron/key1/MDMwN2Q3OGRiYmM4Y2RkOWZjNTBmMzA4MzViZDZiNjQ=//attacks/true >/dev/null 2>&1
 
 https://en.wikipedia.org/wiki/Cron
 
