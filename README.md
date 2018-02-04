@@ -67,6 +67,7 @@ e.g.
 https://en.wikipedia.org/wiki/Cron
 
 # screens
+<p align="center">
 ![Screenshot](screens/1.jpg)
 
 ![Screenshot](screens/2.jpg)
@@ -88,7 +89,7 @@ https://en.wikipedia.org/wiki/Cron
 ![Screenshot](screens/10.jpg)
 
 ![Screenshot](screens/11.jpg)
-
+</p>
 
 # Read about the journey
 
