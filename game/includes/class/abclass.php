@@ -1,49 +1,46 @@
 <?php
-class Abilities extends Alpha
-{
+class Abilities extends Alpha {
 
-  function Abilities()
-  {
+  function Abilities() {
 
     parent::__construct();
     global $userData;
 
 
-	$userData["level"]     = $this->user["level"];
+    $userData["level"]     = $this->user["level"];
     $userData["maxEnergy"] = $this->user["maxEnergy"];
 
 
-	if ($this->user['id'])
-    {
+    if ($this->user['id']) {
 
 
-   	 	$uab = $this->uclass->getUserAbilities($this->user["id"], range(1, 10));
+      $uab = $this->uclass->getUserAbilities($this->user["id"], range(1, 10));
 
-    	foreach ($uab as $ability)
-      		$userAbilities[$ability["ability_id"]] = $ability["level"];
+      foreach ($uab as $ability)
+        $userAbilities[$ability["ability_id"]] = $ability["level"];
 
-    	$this->userAbilities = $userAbilities;
+      $this->userAbilities = $userAbilities;
 
 
-	}
+    }
     require_once('includes/constants/abilities.php');
     $this->abilities = $abilities;
 
 
-    if ($this->user['id'])
-	{
-		$this->processAbilitiesData();
-	}
+    if ($this->user['id']) {
+      $this->processAbilitiesData();
+    }
 
 
 
   }
 
-  function upgrade_ability($id, $user_id = false)
-  {
+  function upgrade_ability($id, $user_id = false) {
 
-	if (!$user_id) $user_id = $this->user['id'];
-    if (!$user_id || !$id) return;
+    if (!$user_id)
+      $user_id = $this->user['id'];
+    if (!$user_id || !$id)
+      return;
 
     $this->uclass->addAbilityLevel($user_id, $id, 1);
 
@@ -55,8 +52,7 @@ class Abilities extends Alpha
     $_SESSION["success"] = "Ability " . $ability["name"] . " upgrade complete";
   }
 
-  function processAbilitiesData($decideIfCanLearn = true)
-  {
+  function processAbilitiesData($decideIfCanLearn = true) {
     global $user, $tasks, $error, $lerrors, $config, $abtask;
 
     // calculate abilities properties
@@ -97,12 +93,11 @@ class Abilities extends Alpha
     } // foreach
 
   } // processAbilitiesData
-  function add_ability_task($ability_id)
-  {
+  function add_ability_task($ability_id) {
     $ability = $this->abilities[$ability_id];
     $lvl     = $this->userAbilities[$_POST["a"]] + 1;
 
-    //	$abtask=$task;
+    //    $abtask=$task;
     $takes = $ability["rates"]["time"];
 
     $ability["rates"]["money"] = $ability["rates"]["price"];
@@ -118,4 +113,3 @@ class Abilities extends Alpha
 
 
 }
-?>

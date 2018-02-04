@@ -67,27 +67,27 @@ e.g.
 https://en.wikipedia.org/wiki/Cron
 
 # screens
-![Screenshot](screens/1.png)
+![Screenshot](screens/1.jpg)
 
-![Screenshot](screens/2.png)
+![Screenshot](screens/2.jpg)
 
-![Screenshot](screens/3.png)
+![Screenshot](screens/3.jpg)
 
-![Screenshot](screens/4.png)
+![Screenshot](screens/4.jpg)
 
-![Screenshot](screens/5.png)
+![Screenshot](screens/5.jpg)
 
-![Screenshot](screens/6.png)
+![Screenshot](screens/6.jpg)
 
-![Screenshot](screens/7.png)
+![Screenshot](screens/7.jpg)
 
-![Screenshot](screens/8.png)
+![Screenshot](screens/8.jpg)
 
-![Screenshot](screens/9.png)
+![Screenshot](screens/9.jpg)
 
-![Screenshot](screens/10.png)
+![Screenshot](screens/10.jpg)
 
-![Screenshot](screens/11.png)
+![Screenshot](screens/11.jpg)
 
 
 # Read about the journey
