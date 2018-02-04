@@ -34,15 +34,11 @@ Import DB.sql into a fresh MySQL db.
 
 Copy includes/database_info.template.php into includes/database_info.php and add your DB details.
 
-Open includes/constants/constants.php and configure it if you want to setup email sending.
+Open includes/constants/constants.php and configure it with the URL and if you want to setup email sending.
 
 Run 'composer install' and 'composer update' (more info about composer: https://getcomposer.org/)
 
 Create an account through the signup form and set your group_id to 1 inside the user_credentials DB table to become a Cardinal (admin).
-
-# WARNING
-
-Game currently works only if it is at the root of the domain. eg not localhost/game but localhost
 
 # Cron jobs
 
@@ -67,6 +63,9 @@ e.g.
 https://en.wikipedia.org/wiki/Cron
 
 # screens
+
+<p align="center">
+  
 ![Screenshot](screens/1.jpg)
 
 ![Screenshot](screens/2.jpg)
@@ -89,6 +88,7 @@ https://en.wikipedia.org/wiki/Cron
 
 ![Screenshot](screens/11.jpg)
 
+</p>
 
 # Read about the journey
 
