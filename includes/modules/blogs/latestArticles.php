@@ -1,5 +1,5 @@
 <?php
-  if (!defined('cardinalSystem')) exit;	
+  	
 
   $pages                 = new Paginator;
   $pages->items_total    = $db->getOne('blog_articles', 'count(*) nra')['nra'];

@@ -1,7 +1,4 @@
 <?php
-if (!defined('cardinalSystem'))
-  exit;
-
 $page_title = 'Home';
 
 /* HACKDOWN */
@@ -32,4 +29,3 @@ if (!$cardinal->loginSystem->logged) {
 if ($cardinal->loginSystem->logged) {
 	include("player.php");
 } //$cardinal->loginSystem->logged
-

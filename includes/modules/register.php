@@ -1,7 +1,7 @@
 <?php
  /**
  */
-if (!defined('cardinalSystem')) exit;
+
 include('includes/class/registrationSystem.php');
 $registrationSystem = new RegistrationSystem;
 

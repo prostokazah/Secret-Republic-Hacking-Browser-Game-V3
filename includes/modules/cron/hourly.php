@@ -1,5 +1,5 @@
 <?php
-if (!defined('cardinalSystem')) exit;	
+	
 
 $type = "hourly";
 

@@ -1,8 +1,5 @@
 <?php
 
-if (!defined('cardinalSystem'))
-  exit;
-
 class RegistrationSystem extends Alpha
 {
 

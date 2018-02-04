@@ -1,6 +1,6 @@
 <?php
 
-if (!defined('cardinalSystem')) exit;	
+	
 
 
 if ($GET['inAppIFrame'])

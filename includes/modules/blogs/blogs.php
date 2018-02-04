@@ -1,12 +1,9 @@
 <?php
-if (!defined('cardinalSystem'))
-  exit;
-
 if ($GET["latestArticles"])
   include("latestArticles.php");
 else {
   require_once('../includes/class//blogclass.php');
-  
+
   $page_title = "Blog";
 
   if ($GET["article"])

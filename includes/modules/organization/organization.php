@@ -1,6 +1,6 @@
 <?php
 
-if (!defined('cardinalSystem')) exit;
+
 
 require_once('../includes/class//oclass.php');
 

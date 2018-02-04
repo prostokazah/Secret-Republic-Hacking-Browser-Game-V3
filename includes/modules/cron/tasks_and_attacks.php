@@ -1,8 +1,5 @@
 <?php
 
-if (!defined('cardinalSystem'))
-  exit;
-
 $user = array();
 
 
@@ -22,15 +19,15 @@ foreach($tasks as $task)
 	switch($task['type'])
 	{
 		case 1:
-	
+
 			if (!$abclass)
 			{
-				
+
 				$abclass = new Abilities();
 			}
-		
+
     		$abclass->upgrade_ability($task["dataid"]);
-			
+
 			break;
     case 3:
       $item = new Item($task);
@@ -44,11 +41,11 @@ foreach($tasks as $task)
 
        $name .= ' ' . $task['name'];
        $uclass->addReward($task['uid'], $reward, $name);
-   
+
     break;
-	
+
 	}
-	
+
 	$taskclass->delete_task_session($task["uid"], $task['type']);
 }
 
@@ -68,7 +65,7 @@ $attacks = $db->where("totalSeconds + created <= ?", array(time()))
 	            ->get("attacks_inprogress", null, "sender_user_id, receiver_user_id, attack_id, sender, receiver, created, totalSeconds, type, servers");
 
 foreach ($attacks as $attack) {
- 
+
   $sender_node = explode(":", $attack['sender']);
   $receiver_node = explode(":", $attack['receiver']);
 
@@ -76,18 +73,18 @@ foreach ($attacks as $attack) {
   							 ->where("cluster", $sender_node[1])
   							 ->where("node", $sender_node[2])
   				       ->getOne("zone_grid_cluster_nodes zgcn", "zgcn.*");
-  
+
   $receiver = $db->where("zone_id", $receiver_node[0])
   							 ->where("cluster", $receiver_node[1])
   							 ->where("node", $receiver_node[2])
   				       ->getOne("zone_grid_cluster_nodes zgcn", "zgcn.*");
 
   $sender['servers'] = explode(",", $attack['servers']);
-  if ($attack['type'] == 1) 
+  if ($attack['type'] == 1)
   {
 		$battleSystem = new BattleSystem();
 
-  
+
 
 		$data   = $battleSystem->computePlayerSpyStats($sender['user_id'], true, false, false, false, $sender['servers']);
 		$sender = array_merge($sender, $data);
@@ -108,8 +105,8 @@ foreach ($attacks as $attack) {
 		$diffPercent = $sender["spyAttack"] - $spyProtectionOverToConsider;
 		$diffPercent = $diffPercent / $spyProtection1;
 		$diffPercent = $diffPercent <= 100 ? $diffPercent : 100;
-	  } 
-	
+	  }
+
 	  // how many skills receiver has
 	  $skillsCount = count($receiver["skills"]);
 
@@ -126,16 +123,16 @@ foreach ($attacks as $attack) {
 	  $report["skills"] = $returnSkills;
 	 // $report["accuracy"] = round($accuracyPercent, 2);
 	  $report["diffPercent"] = $diffPercent;
-	  
-	 
+
+
 	  // if spy atack is less than 60 percent more powerfull (well actually
 	  // 30% more powerful cause we start at 50) notify receiver
 	  if ($diffPercent < 80)
 	  {
 			$report['attemptDetected']= true;
 	  }
-	  
-	 
+
+
   }
   elseif ($attack['type'] == 2)
   {
@@ -149,8 +146,8 @@ foreach ($attacks as $attack) {
 		$battleSystem->fight($sender, $receiver, true);
 
 		$report = $battleSystem->report;
-	  
-	  
+
+
 	  $attack['winner_user_id'] = $report['winner_user_id'];
 	  if ($attack['winner_user_id'] == $sender['user_id'])
 	  	$attack['winner'] = $attack['sender'];
@@ -159,7 +156,7 @@ foreach ($attacks as $attack) {
 
 
   }elseif ($attack['type'] == 3){
-	  
+
 
 	 	$dataPoints = $receiver['floatingDataPoints'];
 
@@ -167,11 +164,11 @@ foreach ($attacks as $attack) {
   	$db->rawQuery('update zone_grid_cluster_nodes set floatingDataPoints = 0 where zone_grid_cluster_nodes_id = ?',
   								 array($receiver['zone_grid_cluster_nodes_id']));
 
-	  
+
 	 // $message = "You have scavenged ".$dataPoints." Data Points.";
 	  $reward['dataPoints'] = $dataPoints;
 	  $uclass->addReward($sender['user_id'], $reward, "Grid Scavenging " . $attack['receiver']);
-	  
+
 	 // $uclass->send_msg(-1, $sender["user_id"], $message, "Scavenging Report",5);
   }elseif ($attack['type'] == 4)
   {
@@ -202,7 +199,7 @@ foreach ($attacks as $attack) {
       $stats['nisrTotal'] = $stats['nisrTotal'] > 100 ? 100 : $stats['nisrTotal'];
 
       $instantiationSuccessful = rand(1, 100) < $stats['nisrTotal'] ? true : false;
-      
+
       if ($instantiationSuccessful)
       {
 	  		// create or update a node instance with current user
@@ -219,22 +216,22 @@ foreach ($attacks as $attack) {
 	  				 ->update('zone_grid_cluster_nodes', $data);
 	  		}
 	  		else
-	  		{	
+	  		{
 	  			$db->insert('zone_grid_cluster_nodes', $data);
 	  		}
 	  	}
 
   	}
   }
-	
+
    $attack["log_created"] = time();
    $attack["report"]      = serialize($report);
    $db->where("attack_id", $attack["attack_id"])->delete("attacks_inprogress", 1);
 	 unset($attack["attack_id"]);
    $attack_log_id = $db->insert("attack_logs", $attack);
-	
-	switch ($attack['type']) 
-	{ 
+
+	switch ($attack['type'])
+	{
 		case 1:
 			  $message = "[URL=".URL."attacks/attack/".$attack_log_id."]Spy report generated and made available in the Spy Reports Interface.[/URL]";
 				if ($report['attemptDetected'])
@@ -243,7 +240,7 @@ foreach ($attacks as $attack) {
 					$messageReceiver = "Detected a spy attempt from ".$attack["sender"].".";
 					$uclass->send_msg(-1, $receiver["user_id"], $messageReceiver, 'Spy Report', 2);
 				}
-		
+
 	  		$uclass->send_msg(-1, $sender["user_id"], $message, 'Spy Report', 2);
 			break;
 		case 2:

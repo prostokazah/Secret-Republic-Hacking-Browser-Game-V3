@@ -1,7 +1,5 @@
 <?php
 
-if (!defined('cardinalSystem')) exit;
-
 class Tasks extends Alpha{
 
 		function Tasks(){

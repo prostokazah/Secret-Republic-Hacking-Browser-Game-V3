@@ -4,8 +4,6 @@
 CARDINAL - ONE OF THE MAIN CLASSES OF THE SYSTEM - N.A.M.
 ************/
 
-if (!defined('cardinalSystem'))
-  exit;
 /**
  * Contains everything needed to run the system
  */

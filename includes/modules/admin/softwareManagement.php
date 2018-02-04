@@ -3,7 +3,7 @@
  
  */
 
-if (!defined('cardinalSystem')) exit;	
+	
 
 if (isset($_GET["app"]))
 {

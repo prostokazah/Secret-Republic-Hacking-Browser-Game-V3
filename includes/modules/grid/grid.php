@@ -1,9 +1,5 @@
 <?php
 
-if (!defined('cardinalSystem'))
-  exit;
-
-
 function verifySelectedServers($selectedServers, $validServers)
 {
   $serverIds = array();

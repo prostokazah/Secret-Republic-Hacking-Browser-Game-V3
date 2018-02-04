@@ -3,7 +3,7 @@
  	Created by Nenu Adrian ~ 2012 ~ http://nenuadrian.com
  */
 
-if (!defined('cardinalSystem')) exit;
+
 
 $cardinal->mustLogin();
 

@@ -1,8 +1,5 @@
 <?php
 
-if (!defined('cardinalSystem'))
-  exit;
-
 require_once('functions.php');
 require_once('class/RewardsManager.class.php');
 require_once('class/Item.class.php');

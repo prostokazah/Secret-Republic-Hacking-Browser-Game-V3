@@ -1,5 +1,5 @@
 <?php
-if (!defined('cardinalSystem')) exit;	
+	
 
 require_once('../includes/class//class.forum.php');
 

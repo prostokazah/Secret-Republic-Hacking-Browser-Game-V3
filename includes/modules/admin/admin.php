@@ -2,7 +2,7 @@
  /**
  */
 
-if (!defined('cardinalSystem')) exit;
+
 
 
 $cardinal->mustLogin();

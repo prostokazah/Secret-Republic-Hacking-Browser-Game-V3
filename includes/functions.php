@@ -4,44 +4,46 @@
 */
 use PrettyDateTime\PrettyDateTime;
 
-if (!defined('cardinalSystem'))
-  exit;
 
-
-function page_url($page)
-{
+function page_url($page) {
   return URL . $page;
 }
-function redirect_to_page($page)
-{
+function redirect_to_page($page) {
   global $cardinal;
   $cardinal->redirect(page_url($page));
 }
-function logged_in()
-{
+function logged_in() {
   global $logged;
   return $logged ? true : false;
 }
-function GET($field)
-{
+function GET($field) {
   global $GET;
   return isset($GET[$field]) ? $GET[$field] : false;
 }
 function ordinal($number) {
-    $ends = array('th','st','nd','rd','th','th','th','th','th','th');
-    if ((($number % 100) >= 11) && (($number%100) <= 13))
-        return $number. 'th';
-    else
-        return $number. $ends[$number % 10];
+  $ends = array(
+    'th',
+    'st',
+    'nd',
+    'rd',
+    'th',
+    'th',
+    'th',
+    'th',
+    'th',
+    'th'
+  );
+  if ((($number % 100) >= 11) && (($number % 100) <= 13))
+    return $number . 'th';
+  else
+    return $number . $ends[$number % 10];
 }
 
-function there_are_errors()
-{
+function there_are_errors() {
   global $errors;
   return count($errors) > 0 ? true : false;
 }
-function add_alert($message, $type = "error")
-{
+function add_alert($message, $type = "error") {
   global $errors, $success;
   if ($type == "error")
     $errors[] = $message;
@@ -49,93 +51,101 @@ function add_alert($message, $type = "error")
     $success[] = $message;
 }
 
-function submitted_form($identifier)
-{
-  if (isset($_POST["form_identifier"]) && $_POST['form_identifier'] == $identifier)
-  {
-    unset ($_POST["form_identifier"]);
+function submitted_form($identifier) {
+  if (isset($_POST["form_identifier"]) && $_POST['form_identifier'] == $identifier) {
+    unset($_POST["form_identifier"]);
     return true;
   }
   return false;
 }
-function configs($field)
-{
+function configs($field) {
   global $config;
-  if (isset($config[$field])) return $config[$field];
+  if (isset($config[$field]))
+    return $config[$field];
   return false;
 }
 
-function date_fashion($date){
-	if(!$date) return 'never';
+function date_fashion($date) {
+  if (!$date)
+    return 'never';
   $dateTime = new DateTime();
   $dateTime->setTimestamp($date);
   return PrettyDateTime::parse($dateTime);
 }
 
-function ordinalSuffix($number)
-{
-$ends = array('th','st','nd','rd','th','th','th','th','th','th');
-if (($number %100) >= 11 && ($number%100) <= 13)
-   $abbreviation = $number. 'th';
-else
-   $abbreviation = $number. $ends[$number % 10];
+function ordinalSuffix($number) {
+  $ends = array(
+    'th',
+    'st',
+    'nd',
+    'rd',
+    'th',
+    'th',
+    'th',
+    'th',
+    'th',
+    'th'
+  );
+  if (($number % 100) >= 11 && ($number % 100) <= 13)
+    $abbreviation = $number . 'th';
+  else
+    $abbreviation = $number . $ends[$number % 10];
 
-	return $abbreviation;
+  return $abbreviation;
 
 }
 
-function myErrorHandler($errno, $errstr, $errfile, $errline)
-{
+function myErrorHandler($errno, $errstr, $errfile, $errline) {
   global $cardinal;
   $report = array(
     E_USER_ERROR,
     E_ERROR,
     E_PARSE,
-	  E_CORE_ERROR,
+    E_CORE_ERROR,
     256
-  );;
+  );
+  ;
 
   if (in_array($errno, $report) && isset($errstr)) {
-	  global $smarty, $tVars, $GET, $config;
-    $backtrace = debug_backtrace();
-    $backtrace=0;
-		$insertData = array(
-		  'errline' => $errline,
-		  'errfile' => $errfile,
-		  'page' => $GET['currentPage'],
-		  'url' => URL_C,
-		  'errno' => $errno,
-		  'errstr' => htmlentities($errstr, ENT_QUOTES),
-		  'user_id' => isset($cardinal->user['id']) ? $cardinal->user['id'] : 0,
-		  'backtrace' => var_export($backtrace, true)
-		);
+    global $smarty, $tVars, $GET, $config;
+    $backtrace  = debug_backtrace();
+    $backtrace  = 0;
+    $insertData = array(
+      'errline' => $errline,
+      'errfile' => $errfile,
+      'page' => $GET['currentPage'],
+      'url' => URL_C,
+      'errno' => $errno,
+      'errstr' => htmlentities($errstr, ENT_QUOTES),
+      'user_id' => isset($cardinal->user['id']) ? $cardinal->user['id'] : 0,
+      'backtrace' => var_export($backtrace, true)
+    );
 
-	if ($smarty) {
-		//if ($cardinal->user['view_debug'])
-		  $tVars['insertData'] = var_export($insertData, true);
+    if ($smarty) {
+      //if ($cardinal->user['view_debug'])
+      $tVars['insertData'] = var_export($insertData, true);
 
-		  errors_success();
+      errors_success();
 
-		$smarty->assign($tVars);
-		$smarty->display('pages/error.tpl');
-		$smarty->display('footer_home.tpl');
-    	unset ($smarty);
+      $smarty->assign($tVars);
+      $smarty->display('pages/error.tpl');
+      $smarty->display('footer_home.tpl');
+      unset($smarty);
 
-	} else {
-     echo '<h3>Cardinal notice: An unexpected error took place. Error recorded. Crazy people are going to look into it soon!</h3>';
-		if (isset($cardinal->user['view_debug']))
-      print_R($insertData);
-	}
+    } else {
+      echo '<h3>Cardinal notice: An unexpected error took place. Error recorded. Crazy people are going to look into it soon!</h3>';
+      if (isset($cardinal->user['view_debug']))
+        print_R($insertData);
+    }
 
-	  exit();
+    exit();
 
   } //in_Array($errno, $report) && isset($errstr)
   return true;
 
 
 }
-function fatalErrorShutdownHandler()
-{
+function fatalErrorShutdownHandler() {
   $last_error = error_get_last();
   if (isset($last_error['message']))
     myErrorHandler(E_ERROR, $last_error['message'], $last_error['file'], $last_error['line']);
@@ -145,55 +155,33 @@ set_error_handler('myErrorHandler');
 register_shutdown_function('fatalErrorShutdownHandler');
 
 
-
-
-
-
-function is_ip($ip)
-{
+function is_ip($ip) {
   return filter_var($ip, FILTER_VALIDATE_IP);
 }
 
 
 
 
-function errors_success()
-{
-  global $errors, $error, $GET, $info, $myModals, $messenger,$tVars, $no_warning_voice,$voice, $success, $page_start, $pages, $page_title, $page, $user, $logged, $config, $alert, $warnings, $cardinal;
+function errors_success() {
+  global $errors, $error, $GET, $info, $myModals, $messenger, $tVars, $no_warning_voice, $voice, $success, $page_start, $pages, $page_title, $page, $user, $logged, $config, $alert, $warnings, $cardinal;
 
 
 
-  if ($user['aiVoice'] && ($_SESSION['premium']['ai']))
-  {
+  if ($user['aiVoice'] && ($_SESSION['premium']['ai'])) {
     if (!$voice)
       if ($errors || $error)
         $voice = 'error';
       elseif ($success)
         $voice = 'notice';
-      elseif ( $warnings && !$no_warning_voice)
+      elseif ($warnings && !$no_warning_voice)
         $voice = 'warning';
-  }
-  else unset($voice);
+  } else
+    unset($voice);
 
   if ($cardinal->loginSystem->logged) {
-    $inParty = false;
-    if ($user['in_party'])
-    {
-      $inParty = array("showChat" => false);
 
-      if (!$_SESSION['party_data'] || $_SESSION['party_data']['party_id'] != $user['in_party'])
-        $_SESSION['party_data'] = $cardinal->db->where('party_id', $user['in_party'])->getOne('parties');
-
-      $inParty['showChat'] = $_SESSION['party_data']['global_chat_active'];
-
-      if (!$inParty['showChat'])
-      if ( in_array($GET["currentPage"], array('quests/quests','parties')) || $user['questManager'])
-        $inParty['showChat'] = true;
-
-    }
-
-	  if ($user['friend_requests'] + $user['rewardsToReceive'])
-			$user['profileNotification'] = true;
+    if ($user['friend_requests'] + $user['rewardsToReceive'])
+      $user['profileNotification'] = true;
     $tVars['logged'] = true;
     $tVars['user']   = $user;
 
@@ -204,37 +192,44 @@ function errors_success()
 
   if ($pages->num_pages) {
 
-    $tVars['pages']     = $pages->display_pages();
+    $tVars['pages'] = $pages->display_pages();
 
   } //$pages->num_pages
 
   if ($error)
     $errors[] = $error;
   if (isset($success) && !is_array($success))
-    $success = array($success);
+    $success = array(
+      $success
+    );
 
   if (is_array($errors))
-  foreach ($errors as $error)
-    $messenger[] = array('type'=>'error', 'message'=>$error);
+    foreach ($errors as $error)
+      $messenger[] = array(
+        'type' => 'error',
+        'message' => $error
+      );
 
   if (is_array($success))
-  foreach ($success as $s)
-    $messenger[] = array('type'=>'success', 'message'=>$s);
+    foreach ($success as $s)
+      $messenger[] = array(
+        'type' => 'success',
+        'message' => $s
+      );
 
   $moreTemplateVariables = array(
-  	  'errors' => $errors,
-	  'success' => $success,
-	  'info' => $info,
-	  'myModals' => $myModals,
-	  'messenger' => $messenger,
-	  'alert' => $alert,
-	  'warnings' => $warnings,
-	  'page_title' => $page_title,
-	  'page' => $page,
+    'errors' => $errors,
+    'success' => $success,
+    'info' => $info,
+    'myModals' => $myModals,
+    'messenger' => $messenger,
+    'alert' => $alert,
+    'warnings' => $warnings,
+    'page_title' => $page_title,
+    'page' => $page,
     'config' => $config,
-    'inParty' => $inParty,
-	  'url' => URL_C,
-	  'voice' => $voice
+    'url' => URL_C,
+    'voice' => $voice
   );
 
   $tVars = array_merge($tVars, $moreTemplateVariables);
@@ -242,8 +237,7 @@ function errors_success()
 
 }
 
-function sec2hms($sec, $padHours = true)
-{
+function sec2hms($sec, $padHours = true) {
   $hms   = '';
   $hours = intval(intval($sec) / 3600);
   $hms .= ($padHours) ? str_pad($hours, 2, '0', STR_PAD_LEFT) . ':' : $hours . ':';
@@ -257,8 +251,7 @@ function sec2hms($sec, $padHours = true)
 
 
 
-function convert($size)
-{
+function convert($size) {
   $unit = array(
     'b',
     'kb',
@@ -271,15 +264,14 @@ function convert($size)
 }
 
 
-function generate_ips($nr, $blackList = array())
-{
+function generate_ips($nr, $blackList = array()) {
   $ips = array();
   while (count($ips) < $nr) {
     $ip = mt_rand(1, 255) . '.' . mt_rand(0, 255) . '.' . mt_rand(0, 255) . '.' . mt_rand(0, 255);
 
     if (filter_var($ip, FILTER_VALIDATE_IP))
       if (!in_array($ip, $blackList) && !in_array($ip, $ips))
-		  array_push($ips, $ip);
+        array_push($ips, $ip);
 
   } // while
 
@@ -288,8 +280,7 @@ function generate_ips($nr, $blackList = array())
 }
 
 
-function array_orderby()
-{
+function array_orderby() {
   $args = func_get_args();
   $data = array_shift($args);
   foreach ($args as $n => $field) {
@@ -305,58 +296,64 @@ function array_orderby()
   return array_pop($args);
 }
 
-function double_rand($x, $y)
-{
+function double_rand($x, $y) {
   $x = $x * 100;
   $y = $y * 100;
   $k = rand($x, $y);
   return $k / 100;
 }
 
-function profile_link($username, $color = '')
-{
+function profile_link($username, $color = '') {
   global $config, $mobile;
   $color = $color ? sprintf('style="color:%s"', $color) : '';
 
 
 
 
-  return '<a class="tiptip" href="' . $config['url'] . 'profile/hacker/' . $username . '" title="'.$username.'\'s profile" ' . $color . ' >'.$username.'</a>';
+  return '<a class="tiptip" href="' . $config['url'] . 'profile/hacker/' . $username . '" title="' . $username . '\'s profile" ' . $color . ' >' . $username . '</a>';
 
 }
 
 
 
-function sizeofvar($var)
-{
+function sizeofvar($var) {
   $start_memory = memory_get_usage();
   $tmp          = unserialize(serialize($var));
   return memory_get_usage() - $start_memory;
 }
 
 
-function romanic_number($integer, $upcase = true)
-{
-    $table = array('M'=>1000, 'CM'=>900, 'D'=>500, 'CD'=>400, 'C'=>100, 'XC'=>90, 'L'=>50, 'XL'=>40, 'X'=>10, 'IX'=>9, 'V'=>5, 'IV'=>4, 'I'=>1);
-    $return = '';
-    while($integer > 0)
-    {
-        foreach($table as $rom=>$arb)
-        {
-            if($integer >= $arb)
-            {
-                $integer -= $arb;
-                $return .= $rom;
-                break;
-            }
-        }
+function romanic_number($integer, $upcase = true) {
+  $table  = array(
+    'M' => 1000,
+    'CM' => 900,
+    'D' => 500,
+    'CD' => 400,
+    'C' => 100,
+    'XC' => 90,
+    'L' => 50,
+    'XL' => 40,
+    'X' => 10,
+    'IX' => 9,
+    'V' => 5,
+    'IV' => 4,
+    'I' => 1
+  );
+  $return = '';
+  while ($integer > 0) {
+    foreach ($table as $rom => $arb) {
+      if ($integer >= $arb) {
+        $integer -= $arb;
+        $return .= $rom;
+        break;
+      }
     }
+  }
 
-    return $return;
+  return $return;
 }
 
-function shuffle_assoc($list)
-{
+function shuffle_assoc($list) {
   if (!is_array($list))
     return $list;
 
@@ -368,4 +365,3 @@ function shuffle_assoc($list)
   } //$keys as $key
   return $random;
 }
-?>

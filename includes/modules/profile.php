@@ -1,6 +1,6 @@
 <?php
 
-if (!defined('cardinalSystem')) exit;	
+	
 
 
 	$selectColumns = 'hu.id, g.name, ho.name  oname, ho.orank ,username, gavatar,organization,rank,
