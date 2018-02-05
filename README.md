@@ -28,17 +28,19 @@ https://github.com/nenuadrian/Secret-Republic-Hacker-Game-ORPBG-Alpha
 
 # Setting up
 
-You can go with a light LAMP setup. Install MAMP (https://www.mamp.info/en/) for windows, WAMP (http://www.wampserver.com/en/) for Mac.
+You need a webserver able to run PHP and an MySQL database (LAMP). 
 
-Import DB.sql into a fresh MySQL db.
+1. Install MAMP (https://www.mamp.info/en/) for windows or WAMP (http://www.wampserver.com/en/) for Mac to get them out of the box.
 
-Copy includes/database_info.template.php into includes/database_info.php and add your DB details.
+2. Import DB.sql into a fresh MySQL db.
 
-Open includes/constants/constants.php and configure it with the URL and if you want to setup email sending.
+3. Copy includes/database_info.template.php into includes/database_info.php and add your DB details.
 
-Run 'composer install' and 'composer update' (more info about composer: https://getcomposer.org/)
+4. Open includes/constants/constants.php and configure it with the URL and if you want to setup email sending.
 
-Create an account through the signup form and set your group_id to 1 inside the user_credentials DB table to become a Cardinal (admin).
+5. Run 'composer install' and 'composer update' (more optional info about composer: https://getcomposer.org/)
+
+6. Create an account through the signup form and set your group_id to 1 inside the user_credentials DB table to become a Cardinal (admin).
 
 # Cron jobs
 
