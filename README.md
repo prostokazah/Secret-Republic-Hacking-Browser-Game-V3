@@ -6,11 +6,9 @@
 
 </p>
 
-See screens at the bottom.
+See screens at the bottom. Audio trailer: https://www.youtube.com/watch?v=6thfiGb-b7c
 
 The code for the Secret Republic hacker simulation role playing game V3.
-
-Futuristic UI. Mission designer. Audio AI voice speaks when interacting with the game.
 
 A lot of work has gone into this but it (and more in its previous version) is not a documented (as of yet) project.
 
@@ -20,6 +18,19 @@ However, the project on stand-by so I've decided to make the source available of
 
 Read more about the history of the game and the more complete older version in the works for open sourcing @ https://medium.com/@adrian.n/secret-republic-open-sourced-hacker-simulation-futuristic-rpg-browser-based-game-php-843d393cb9d7
 
+# Main Features
+
+1 Audio AI (woman, same as trailer) voice speaks when interacting with the game
+1 Futuristic bootstrap based UI, mostly mobile ready
+1 UNIX like terminal/command line based missions
+1 In-game Mission designer with BBCode like syntax features (see attached Guides and screens)
+1 Community features: forums, organizations (guilds), organization forums, blogs, friends, messaging system, automatic mission based tournamens (hackdown), organization specific mission, the grid
+1 The grid: every players gets a node to start with and can initialize or conquer other nodes from other players. The world is split in multiple zones, which are split into clusters with a final node granularity. Damage and spy attacks can be triggered between nodes. There's an attempt at a simulator for attacks
+1 Abilities & skills which semi-influence command execution time in missions
+1 Servers with upgradable hardware (motherboard, ram, hdd, power source, software)
+1 Tutorial system
+1 Rewards system
+
 # SecretAlpha V4 ( newer code, much less featured )
 
 I probably recommend you try to run both versions or at least check out both repositories. V4 is newer, more responsive made with mobile-first in mind, but way less featured.
@@ -28,7 +39,7 @@ https://github.com/nenuadrian/Secret-Republic-Hacker-Game-ORPBG-Alpha
 
 # Setting up
 
-You need a webserver able to run PHP and an MySQL database (LAMP). 
+You need a webserver able to run PHP and an MySQL database (LAMP).
 
 1. Install MAMP (https://www.mamp.info/en/) for windows or WAMP (http://www.wampserver.com/en/) for Mac to get them out of the box.
 
@@ -67,7 +78,7 @@ https://en.wikipedia.org/wiki/Cron
 # screens
 
 <p align="center">
-  
+
 ![Screenshot](screens/1.jpg)
 
 ![Screenshot](screens/2.jpg)
