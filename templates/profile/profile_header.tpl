@@ -5,7 +5,6 @@
           
           
 		  <li><a href="{$config.url}blogs/myown/go">Blogs</a></li>
-		  <li><a href="{$config.url}social">Social</a></li>
           <li><a href="{$config.url}friends" >{if $user.friend_requests}<span id="friendreq">{$user.friend_requests} requests</span>{else}Friends{/if}</a></li>
       
 	

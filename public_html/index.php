@@ -14,28 +14,24 @@ require_once('../includes/class/cardinal.php');
 $cardinal = new Cardinal();
 $url = $cardinal->config['url'];
 
-$pageURL = explode('/', stripslashes($_SERVER['PHP_SELF']));
+$pageURL = array_filter(explode('/', stripslashes($_SERVER['REQUEST_URI'])));
 
 define("URL_C", stripslashes('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']) . '/');
 
 $pageURL = implode ("/", $pageURL);
-$GETQuery = urldecode($_SERVER['PHP_SELF']);
-$GETQuery = explode("/", $GETQuery);
 
-for ($i = 0; $i < count($GETQuery); $i++) {
-  if ($GETQuery[$i] == 'index.php') {
-    $include = $GETQuery[$i + 1];
-    unset ($GETQuery[$i]);
-  }
-  unset($GETQuery[0]);
+$GETQuery = urldecode($_SERVER['REQUEST_URI']);
+$GETQuery = array_values(array_filter(explode("/", $GETQuery)));
+
+$include = 'main';
+if ($GETQuery) {
+	$include =  str_replace(array('-','_'), '', $GETQuery[0]);
+	unset($GETQuery[0]);
+	$GETQuery = array_values($GETQuery);
+
+	for ($i = 0; $i < count($GETQuery); $i += 2)
+		$GET[$GETQuery[$i]] = isset( $GETQuery[$i + 1]) ? $GETQuery[$i + 1] : "" ;
 }
-
-$GETQuery = array_values($GETQuery);
-for ($i = 0; $i < count($GETQuery); $i += 2)
-  $GET[$GETQuery[$i]] = isset( $GETQuery[$i + 1]) ? $GETQuery[$i + 1] : "" ;
-
-
-$include = ctype_alpha(str_replace(array('-','_'), '', $include)) ? $include : "main";
 
 if ($include != "404" && !file_exists("../includes/modules/" . $include . ".php"))
   $include .= is_dir("../includes/modules/" . $include) ? "/" . $include : $include = "main/main";
@@ -48,10 +44,10 @@ $_GET = array_merge(array("GET" => $_GET), $GET);
 
 require_once('../includes/header.php');
 
-
+$include = file_exists("../includes/modules/" . $include . ".php") ? "../includes/modules/" . $include . ".php" : '404';
 if ($include == "404")
   $cardinal->show_404();
-else include("../includes/modules/" . $include . ".php");
+else include( $include );
 
 
 $tVars["GET"] = $GET;

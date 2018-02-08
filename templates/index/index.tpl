@@ -41,7 +41,7 @@
 
               <div class="col-xs-4 text-center">
                 <a href="{$config.url}dna" title="DNA">
-                <img src="http://www.gravatar.com/avatar/{$user.gavatar}?s=100" class="user-avatar" />
+                <img src="https://www.gravatar.com/avatar/{$user.gavatar}?s=100" class="user-avatar" />
               </a>
               </div>
               <div class="col-xs-8">

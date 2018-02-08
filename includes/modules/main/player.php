@@ -29,7 +29,7 @@ if (!$_SESSION['detectDevice']['mobile']) {
 
 */
 $smarty->cache_lifetime = 300;
-
+/*
 if (!$smarty->isCached('index/missionsSummary.tpl', $user['id'])) {
   
   $db->join('quests_user qu', 'qu.user_id = ' . $user['id'], 'left outer')->where('live_quests > 0 and hqg.type = 1')->where('hqg.level', $user['level'], '<=')->where('(hqg.qparent = 0 or (select id from quests_user qu where qu.user_id = ? and qu.quest = hqg.qparent limit 1) is not null)', array(
@@ -82,7 +82,7 @@ if (!$smarty->isCached('index/missionsSummary.tpl', $user['id'])) {
   
 }
 $tVars["missionsSummary"] = $smarty->fetch("index/missionsSummary.tpl", $user['id']);
-
+*/
 
 
 $smarty->cache_lifetime = 1;

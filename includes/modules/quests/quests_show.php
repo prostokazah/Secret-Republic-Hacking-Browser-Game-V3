@@ -4,30 +4,12 @@
     } //$_POST["play"] && $user["questManager"]
 
 
-    if ($user['in_party']) {
-      if ($_POST['instance']) {
-        $instance = $db->where('party_id', $user['in_party'])->where('instance_id', $_POST['instance'])->getOne('party_quest_instances pqi', 'pqi.instance_id, quest_id');
-        if ($instance['instance_id']) {
-          $myQuest['id'] = $instance['quest_id'];
-          $qclass->initiateMission($myQuest, 15, null, false, $user['in_party'], $instance['instance_id']);
-        } //$instance['instance_id']
-      } //$_POST['instance']
-
-      $tVars['instances'] = $db->join('quests q', 'q.id = pqi.quest_id', 'left outer')
-		                                   ->join('users u', 'u.id = pqi.user_id', 'left outer')
-		                                   ->where('party_id', $user['in_party'])
-		                                   ->get('party_quest_instances pqi', null, 'q.title, pqi.instance_id, u.username');
-
-
-    } //$user['in_party']
+    
 
       // group fetching
       $db->where('live_quests > 0 and hqg.type = 1 and ? >= hqg.level', array( $user['level']))
 		 ->where('(hqg.qparent = 0 or  (select id from quests_user qu where qu.user_id = ? and qu.quest = hqg.qparent limit 1) is not null )',
 				array($user['id']));
-
-      if ($user['in_party'])
-        $db->where('live_party_quests', 0, '>');
 
       if ($GET["group"])
 	  {
@@ -69,17 +51,8 @@
               unset($myQuest["done"]);
 
           if ($_POST["play"] && ($myQuest['type'] == 2 || !$myQuest["done"]) && $myQuest['energy'] < $user['energy'])
-		  if ($myQuest['party'] && !$user['in_party'])
-		  {
-			  $errors[] = "Must be in party";
-			  $cardinal->redirect($url);
-		  }
-		  else
-		  {
 			if ($uclass->canDoTask())
               $qclass->initiateMission($myQuest, 15, null, false, $user['in_party']);
-
-          } //$_POST["play"] && !$quest["done"]
 
           if ($myQuest['done'])
             $myQuest['doneDate'] = date('d/F/Y H:i:s', $myQuest['done']);
@@ -127,9 +100,6 @@
         // fetch quests the user can do
         $db->groupBy('hqg.qgroup_id')->orderBy('gorder', 'asc');
 
-		if ($user['in_party'])
-		$groups = $db->get('quest_groups hqg', null, 'story, premium, hqg.qgroup_id, hqg.name, live_party_quests nrQuests, (select count(distinct(quest)) from quests_user qu left outer join quests q on q.id = qu.quest where qu.user_id = ' . $user['id'] . ' and q.qgroup_id = hqg.qgroup_id and q.isLive = 1 and q.party = 1) questsDone');
-	    else
         $groups = $db->get('quest_groups hqg', null, 'story, premium, hqg.qgroup_id, hqg.name, live_quests nrQuests, live_party_quests, (select count(distinct(quest)) from quests_user qu left outer join quests q on q.id = qu.quest where qu.user_id = ' . $user['id'] . ' and q.qgroup_id = hqg.qgroup_id and q.isLive = 1) questsDone');
 
 

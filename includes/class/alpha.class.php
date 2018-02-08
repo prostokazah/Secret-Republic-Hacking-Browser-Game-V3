@@ -126,13 +126,6 @@ class Alpha {
   function show_404() {
 
     $this->voice = '404';
-    $this->db->reset();
-    $dataInsert = array(
-      'created' => time(),
-      'url' => $this->url,
-      'user_id' => $this->user['id']
-    );
-    $this->db->insert('debug_404_errors', $dataInsert);
 
     $this->templateVariables['show_404'] = true;
 
