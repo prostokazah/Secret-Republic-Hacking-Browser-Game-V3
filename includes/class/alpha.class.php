@@ -45,8 +45,9 @@ class Alpha {
 
   function sendEmail($data = array()) {
     $message = $this->buildEmail($data['message']);
-
+    
     if ($this->config['smtp_host']) {
+      $mail = new PHPMailer(true); 
       $mail->isSMTP(); // Set mailer to use SMTP
       $mail->Host       = $this->config['smtp_host']; // Specify main and backup SMTP servers
       $mail->SMTPAuth   = true; // Enable SMTP authentication
