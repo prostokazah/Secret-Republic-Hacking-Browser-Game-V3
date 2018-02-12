@@ -53,7 +53,7 @@ class Alpha {
       $mail->Username   = $this->config['smtp_username']; // SMTP username
       $mail->Password   = $this->config['smtp_password']; // SMTP password
       $mail->SMTPSecure = $this->config['smtp_secure']; // Enable TLS encryption, `ssl` also accepted
-      $mail->Port       = $this->config['smtp_post']; // TCP port to connect to
+      $mail->Port       = $this->config['smtp_port']; // TCP port to connect to
 
       $mail->setFrom($this->config['smtp_from'], $this->config['smtp_name']);
       foreach ($data['recipients'] as $rec)
