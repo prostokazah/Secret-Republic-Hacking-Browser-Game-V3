@@ -56,6 +56,8 @@ You need a webserver able to run PHP and an MySQL database (LAMP).
 
 2. Import DB.sql into a fresh MySQL db.
 
+3. You might need to run `SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));` against your MySQL DB in order for the SQL for missions to work
+
 3. Copy includes/database_info.template.php into includes/database_info.php and add your DB details.
 
 4. Open includes/constants/constants.php and configure it with the URL and if you want to setup email sending.
