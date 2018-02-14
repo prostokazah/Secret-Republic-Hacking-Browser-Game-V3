@@ -22,25 +22,25 @@ Read more about the history of the game and the more complete older version in t
 
 # Main Features
 
-1 Audio AI (woman, same as trailer) voice speaks when interacting with the game
+1. Audio AI (woman, same as trailer) voice speaks when interacting with the game
 
-2 Futuristic bootstrap based UI, mostly mobile ready
+2. Futuristic bootstrap based UI, mostly mobile ready
 
-3 UNIX like terminal/command line based missions
+3. UNIX like terminal/command line based missions
 
-4 In-game Mission designer with BBCode like syntax features (see attached Guides and screens)
+4. In-game Mission designer with BBCode like syntax features (see attached Guides and screens)
 
-5 Community features: forums, organizations (guilds), organization forums, blogs, friends, messaging system, automatic mission based tournamens (hackdown), organization specific mission, the grid
+5. Community features: forums, organizations (guilds), organization forums, blogs, friends, messaging system, automatic mission based tournamens (hackdown), organization specific mission, the grid
 
-6 The grid: every players gets a node to start with and can initialize or conquer other nodes from other players. The world is split in multiple zones, which are split into clusters with a final node granularity. Damage and spy attacks can be triggered between nodes. There's an attempt at a simulator for attacks
+6. The grid: every players gets a node to start with and can initialize or conquer other nodes from other players. The world is split in multiple zones, which are split into clusters with a final node granularity. Damage and spy attacks can be triggered between nodes. There's an attempt at a simulator for attacks
 
-7 Abilities & skills which semi-influence command execution time in missions
+7. Abilities & skills which semi-influence command execution time in missions
 
-8 Servers with upgradable hardware (motherboard, ram, hdd, power source, software)
+8. Servers with upgradable hardware (motherboard, ram, hdd, power source, software)
 
-9 Tutorial system
+9. Tutorial system
 
-10 Rewards system
+10. Rewards system
 
 # SecretAlpha V4 ( newer code, much less featured )
 
