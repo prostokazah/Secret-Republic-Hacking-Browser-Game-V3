@@ -2,14 +2,13 @@
 
 	
 
-
 if (!$GET["page"])
   $cardinal->show_404();
 else
 {
   if(ctype_alnum(str_replace(array("-", "_"), "", $GET["page"])))
   {
-    if(file_exists("layout/templates/pages/".$GET["page"].".tpl"))
+    if(file_exists("../templates/pages/".$GET["page"].".tpl"))
     { 
 		if ($GET["page"] == "typography")
 			{

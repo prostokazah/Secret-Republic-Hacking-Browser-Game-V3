@@ -26,7 +26,8 @@ $GETQuery = array_values(array_filter(explode("/", $GETQuery)));
 
 $include = 'main';
 if ($GETQuery) {
-	$include =  str_replace(array('-','_'), '', $GETQuery[0]);
+	//$include =  str_replace(array('-','_'), '', $GETQuery[0]);
+	$include =  $GETQuery[0];
 	unset($GETQuery[0]);
 	$GETQuery = array_values($GETQuery);
 
