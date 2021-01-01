@@ -276,13 +276,3 @@
 	</a>
 </div>
 <br/><br/>
-<div class=" row text-center">
-	   <div class="col-xs-4 "></div>
-      <div class="col-xs-2 ">
-        <a href="https://itunes.apple.com/us/app/secret-republic-hacking-online/id946777766?" target="_blank"><img src="{$config.url}layout/img/app_store.png" class="storeIcon"/></a>
-      </div>
-	   <div class="col-xs-2  ">
-        <a href="https://play.google.com/store/apps/details?id=com.codevolution.secretrepublic"  target="_blank"><img src="{$config.url}layout/img/play_store.png" class="storeIcon"/></a>
-      </div>
-	  
-    </div> 
