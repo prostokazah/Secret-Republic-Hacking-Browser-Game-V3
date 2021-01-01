@@ -102,23 +102,9 @@
           <a href="{$config.url}pages/page/media">artwork</a>
           <a href="{$config.url}pages/page/terms-of-service">t.o.s. & privacy</a>
         <a href="{$config.url}support">support</a>
-        <a href="mailto:bugs@secretrepublic.net">report bug</a>
 
         </p>
-				<p><h3>
-				<a href="https://www.facebook.com/theSecretRepublic" target="_blank"><i class="fa fa-facebook"></i></a>  <a href="https://twitter.com/iSecretRepublic" target="_blank"><i class="fa fa-twitter"></i></a>  
-				<a href="https://www.youtube.com/user/TheSecretRepublicCom/" target="_blank"><i class="fa fa-youtube"></i></a>
-        <!--
-					<a href="https://itunes.apple.com/us/app/secret-republic-hacking-online/id946777766?" target="_blank"><i class="fa fa-apple"></i></a>
-					-->
-				   <a href="https://play.google.com/store/apps/details?id=com.codevolution.secretrepublic" target="_blank"><i class="fa fa-android"></i></a>
-					</h3>
-				</p>
-        <p>
-            <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FtheSecretRepublic&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=21&amp;appId=820318067994880" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;width: 80px; display:inline" allowtransparency="true">
-            </iframe>
-        </p>
-
+			
 				<a onclick="scrollToElement('#body');"><span class="glyphicon glyphicon-chevron-up"></span></a>
 
 
@@ -159,9 +145,6 @@
 
 
     <script type="text/javascript" src="{$config.url}layout/js/global.js?cache=3ffsf44ff"></script>
-   <!--
-    <script type="text/javascript" data-no-instant src="{$config.url}layout/js/bootstrap.min.js"></script>
-  -->
   
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     
@@ -189,22 +172,6 @@
 		  </script>
 		  {/if}
 		  
-		  
-		  
-	 
-	  <!-- Google Analytics -->
-		<script>
-  (function(i,s,o,g,r,a,m){ i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-52068010-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
-	
-	
   
 </body>
 </html>

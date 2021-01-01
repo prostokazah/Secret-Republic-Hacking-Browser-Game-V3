@@ -95,9 +95,9 @@
     {else}
       <li><a href="{$config.url}">Home / Login</a></li>
       <li><a href="{$config.url}register">New account</a></li>
-      <li><a href="{$config.url}socialConnect/facebook/connect">Connect w/ Facebook</a></li>
+      <!--<li><a href="{$config.url}socialConnect/facebook/connect">Connect w/ Facebook</a></li>
       <li><a href="{$config.url}socialConnect/google/connect">Connect w/ Google</a></li>
-      <li><a href="{$config.url}socialConnect/twitter/connect">Connect w/ Twitter</a></li>
+      <li><a href="{$config.url}socialConnect/twitter/connect">Connect w/ Twitter</a></li>-->
       <li><a href="{$config.url}forum"><span class="glyphicon glyphicon-comment"></span></a></li>
       <li><a href="{$config.url}rankings/type/blogs">Blogs</a></li>
       <li><a href="{$config.url}rankings"><span class="glyphicon glyphicon-list"></span></a></li>

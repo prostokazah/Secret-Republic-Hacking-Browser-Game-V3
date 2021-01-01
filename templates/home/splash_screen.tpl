@@ -7,11 +7,6 @@
 <div class="text-center">
 	<iframe class=" alphaGlow" src="http://www.youtube.com/embed/6thfiGb-b7c?origin=http://secretrepublic.net&amp;controls=0&amp;autohide=2&amp;modestbranding=1&amp;showinfo=0&autoplay=false" frameborder="0" style="width:100%;height:250px;">
 	</iframe>
-	<h3>
-	<a href="https://www.facebook.com/theSecretRepublic" target="_blank"><i class="fa fa-facebook"></i></a>
-	 <a href="https://twitter.com/iSecretRepublic" target="_blank"><i class="fa fa-twitter"></i></a>
-	<a href="https://www.youtube.com/user/TheSecretRepublicCom/" target="_blank"><i class="fa fa-youtube"></i></a>
-	</h3>
 </div>
 <div class="row">
 	<div class="col-xs-7">

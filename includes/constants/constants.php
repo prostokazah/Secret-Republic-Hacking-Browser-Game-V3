@@ -2,7 +2,7 @@
 /* Nenu Adrian Mircea 2012+ */
 
 	return [
-		'url' => 'https://secretrepublic.net/',
+		'url' => 'https://secretrepublic-v3.nenuadrian.com/',
 		'tutorialSteps' => 20,
 
 		'gridBrowseZone' => 5,
@@ -22,7 +22,7 @@
 		"smtp_username" => "",
 		"smtp_password" => "",
 		"smtp_name" => "Secret Republic",
-		"smtp_from" =>"do-not-reply@secretrepublic.net",
+		"smtp_from" =>"do-not-reply@secretrepublic-v3.nenuadrian.com",
 		"smtp_secure" => "tls",
 		"smtp_port" =>587,
 
