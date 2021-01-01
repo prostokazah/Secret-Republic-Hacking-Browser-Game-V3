@@ -4,7 +4,7 @@ class Item
   var $data;
   var $item_type;
 
-  function Item($data = false)
+  function __construct($data = false)
   {  
     if ($data)
     {

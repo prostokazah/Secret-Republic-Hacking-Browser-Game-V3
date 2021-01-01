@@ -9,21 +9,21 @@ if ($GET["key1"] != "MDMwN2Q3OGRiYmM4Y2RkOWZjNTBmMzA4MzViZDZiNjQ=") $cardinal->s
     $insertLogs = true;
 
     if ($GET["daily"])
-      include("daily.php");
+      require("daily.php");
     elseif ($GET["hackdown"])
-      include("hackdown.php");
+      require("hackdown.php");
 	elseif ($GET["hackdownEnd"])
-      include("hackdownEnd.php");
+      require("hackdownEnd.php");
     elseif ($GET["hourly"])
-      include("hourly.php");
+      require("hourly.php");
     elseif ($GET["monthly"])
-      include("monthly.php");
+      require("monthly.php");
     elseif ($GET["rankings"])
-      include("rankings.php");
+      require("rankings.php");
     elseif ($GET["attacks"])
-      include("tasks_and_attacks.php");
+      require("tasks_and_attacks.php");
 	elseif ($GET["resources"])
-      include("resources.php");
+      require("resources.php");
 
     $insertData = array(
       "data" => $report,

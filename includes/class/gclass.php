@@ -3,7 +3,7 @@ class Game {
 
 
 
-  function Game() {
+  function __construct() {
 
   }
 

@@ -17,7 +17,7 @@ if (!$war['war_id']) $cardinal->redirect($config['url'].'organization/view/wars'
 
 $page_title = $war['org1_name'] . ' vs ' . $war['org2_name'];
 
-include('includes/class/organizationWars.php');
+require("../includes/class/organizationWars.php');
 $owars = new organizationWars;
 
 $owars->processWar($war);
@@ -29,7 +29,7 @@ $tVars['display'] = 'organization_wars/view_war.tpl';
 
 if ($war['status'] == 2 && $user['organization'])
 {
-  include("class/qclass.php");
+  require("../includes/class/qclass.php");
 
   $orgPrefix = $user['organization'] == $war['org1_id'] ? 'org1' : 'org2';
    

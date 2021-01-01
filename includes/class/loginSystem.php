@@ -11,7 +11,7 @@ class LoginSystem extends Alpha
   private  $failedLoginAttemptsPer = 900;
 
 
-  function LoginSystem()
+  function __construct()
   {
     parent::__construct();
 

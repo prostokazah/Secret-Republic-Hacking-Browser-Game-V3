@@ -21,7 +21,7 @@
       else $selectedServers = $_POST['servers'];
 
       $servers = verifySelectedServers($selectedServers, $servers);
-      include("class/class.battleSystem.php");
+      require("../includes/class/class.battleSystem.php");
       $battleSystem = new BattleSystem();
 		  $stats =  $battleSystem->computePlayerStats($user['id'], true, false, false, false, $servers)['layers'];
 

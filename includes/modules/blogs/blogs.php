@@ -1,13 +1,13 @@
 <?php
 if ($GET["latestArticles"])
-  include("latestArticles.php");
+  require("latestArticles.php");
 else {
   require_once('../includes/class//blogclass.php');
 
   $page_title = "Blog";
 
   if ($GET["article"])
-    include("articles.php");
+    require("articles.php");
   elseif ($GET["create"] && $logged) {
 
       if ($user["blogs"] >= $user["maxBlogs"]) $cardinal->redirect(URL);

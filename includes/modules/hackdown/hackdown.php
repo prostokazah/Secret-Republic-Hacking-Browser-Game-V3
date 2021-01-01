@@ -39,7 +39,7 @@ if ($hackdownTask["id"]) {
 	  
 	  
 	  
-    include("class/qclass.php");
+    require("../includes/class/qclass.php");
   
  
 			
@@ -213,7 +213,7 @@ else
 
 					  $task['hackdown_log_id'] = $db->insert("hackdown_logs", $dataInsert);
 
-					  include("class/qclass.php");
+					  require("../includes/class/qclass.php");
 
 
 

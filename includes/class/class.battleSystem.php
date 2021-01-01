@@ -1,7 +1,7 @@
 <?php
 
 class BattleSystem extends Alpha {
-  function BattleSystem() {
+  function __construct() {
     parent::__construct();
   }
   function computePlayerStats($user_id, $computeLayers = true, $computeSpy = false, $skills = false, $servers = false, $serversUsed = array(), $dontTakeUsedServersInAccount = false) {

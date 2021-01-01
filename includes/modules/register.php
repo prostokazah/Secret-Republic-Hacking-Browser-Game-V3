@@ -2,7 +2,7 @@
  /**
  */
 
-include('includes/class/registrationSystem.php');
+require("../includes/class/registrationSystem.php");
 $registrationSystem = new RegistrationSystem;
 
 if(!$logged && $_GET['reset'])

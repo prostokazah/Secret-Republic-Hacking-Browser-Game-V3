@@ -2,7 +2,7 @@
 
 class Tasks extends Alpha{
 
-		function Tasks(){
+		function __construct(){
 		  parent::__construct();
 		}
 		function add_task_session($uid,$tasktype,$takes,$data = array(),$dataid = NULL,$name='', $session = false, $party_id = false, $instance_id = false){

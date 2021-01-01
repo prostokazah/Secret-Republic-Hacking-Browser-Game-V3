@@ -69,7 +69,7 @@ else
       if ($giveRewards) {
         if ($user['organization']) {
           // give a hacking point to org
-			include("class/oclass.php");
+			require("../includes/class/oclass.php");
 			$oclass = new Organization();
 			$hackingPoints = 1;
 			$oclass->addHackingPoints($hackingPoints, $user['organization'], $user['id'], $qclass->finished);

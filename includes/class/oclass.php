@@ -6,7 +6,7 @@ class OrganizationEntity extends Alpha
   var $perms;
   var $permissions = array('viewMembers', 'manageMembers', 'manageRanks', 'manageOrganization', 'messageAll', 'manageApplications', 'manageWars', 'forumManager', 'manageHackingPoints');
 
-  function OrganizationEntity($organizationID)
+  function __construct($organizationID)
   {
      parent::__construct();
      $this->data = $this->db->join('users hu', 'hu.id = ho.owner', 'LEFT OUTER')

@@ -13,7 +13,7 @@ $cardinal->loginSystem();
 $growl = $myModals = array();
 $success = $warnings = $errors = $info = array();
 
-require("class/paginator.class.php");
+require("../includes/class/paginator.class.php");
 
 require_once('class/taskclass.php');
 

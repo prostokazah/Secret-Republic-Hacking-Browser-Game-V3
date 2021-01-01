@@ -21,7 +21,7 @@ $cardinal->mustLogin();
 					$server = $db->where('user_id', $user['id'])->where("server_id", $_POST['server'])->getOne('servers');
 					if ($server['server_id'])
 					{
-						include("class/class.server.php");
+						require("../includes/class/class.server.php");
 						$server = new Server($server['server_id'], $server);
 
 						if ($server->server['total_hdd'] - $server->server['hdd_usage'] < $item['hdd'])

@@ -1,9 +1,9 @@
 <?php
 
 // @author: Nenu Adrian Mircea
-include('quests/MiniTaskManagement.php');
-include('quests/SSHCommandsManagement.php');
-include('quests/ConsoleManagement.php');
+require('quests/MiniTaskManagement.php');
+require('quests/SSHCommandsManagement.php');
+require('quests/ConsoleManagement.php');
 class QClass extends Alpha
 {
 
@@ -17,7 +17,7 @@ class QClass extends Alpha
   private static $userGameEmail = '@secretrepublic.net';
   private static $cardinalOS = 'Cardinal OS V2.2';
 
-  function QClass(&$questTask = null)
+  function __construct(&$questTask = null)
   {
     parent::__construct();
 

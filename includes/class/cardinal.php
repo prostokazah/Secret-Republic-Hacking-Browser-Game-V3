@@ -8,7 +8,7 @@ CARDINAL - ONE OF THE MAIN CLASSES OF THE SYSTEM - N.A.M.
  * Contains everything needed to run the system
  */
 
-include('alpha.class.php');
+require('alpha.class.php');
 
 class Cardinal extends Alpha {
   function __construct() {

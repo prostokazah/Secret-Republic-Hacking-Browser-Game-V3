@@ -19,7 +19,7 @@ require_once('../includes/class//tclass.php');
     }
     else
 	{
-	//include("class/gclass.php");
+	//require("../includes/class/gclass.php");
 	//$game = new Game();
 		
 	if ($trainTask['dataid'] == 1)
@@ -70,7 +70,7 @@ require_once('../includes/class//tclass.php');
 			
 			if ($answered)
 			{
-				include('includes/class/gclass.php');
+				require("../includes/class/gclass.php');
 				$game = new Game();
 				$trainTask['steps']--;
 				if ($trainTask['steps'] <= 0)
@@ -167,7 +167,7 @@ if(!$tclass->trainTask){
 		  else
 		{
 		
-			include('includes/class/gclass.php');
+			require("../includes/class/gclass.php');
 			$game = new Game();
 			
 			switch ($difficulty)

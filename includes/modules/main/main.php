@@ -21,11 +21,11 @@ else
 
 
 if (!$cardinal->loginSystem->logged) {
-  include('visitor.php');
+  require('visitor.php');
 } //!$cardinal->loginSystem->logged
 
 
 
 if ($cardinal->loginSystem->logged) {
-	include("player.php");
+	require("player.php");
 } //$cardinal->loginSystem->logged

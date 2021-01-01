@@ -50,7 +50,7 @@ foreach($tasks as $task)
 }
 
 
-include("class/class.battleSystem.php");
+require("../includes/class/class.battleSystem.php");
 require_once ("class/class.server.php");
 
 $type          = "attacks";

@@ -71,7 +71,7 @@ $usersToKick = $db->rawQuery('select id, organization,username from users
 
 
 
-include('includes/class/oclass.php');
+require("../includes/class/oclass.php');
 
 
 foreach($usersToKick as $kick)

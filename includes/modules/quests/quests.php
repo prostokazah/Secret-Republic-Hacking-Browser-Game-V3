@@ -12,7 +12,7 @@ if (!$user['server'])
 }
 
 if ($GET["feedback"]) {
-	include('feedback.php');
+	require('feedback.php');
 } //$GET["feedback"]
 else {
 
@@ -59,12 +59,12 @@ else {
   if ($qtask) {
     //QUEST IN PROGRESS
 
-    include('quest_inprogress.php');
+    require('quest_inprogress.php');
 
   } //$qtask
   else {
 
-    include('quests_show.php');
+    require('quests_show.php');
   }
 }
 ?>

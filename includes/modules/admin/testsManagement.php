@@ -3,7 +3,7 @@
 if ($GET['market'])
 {
 
-	include('includes/class/class.market.php');
+	require("../includes/class/class.market.php');
 	$market = new Market();
 
 

@@ -1,7 +1,7 @@
 <?php
 class TrainClass extends Alpha{
 
-	function TrainClass($trainTask = null){
+	function __construct($trainTask = null){
 	  parent::__construct();
 	  
 	  $this->trainTask = $trainTask;

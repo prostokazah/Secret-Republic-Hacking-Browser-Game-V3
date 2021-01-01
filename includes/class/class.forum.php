@@ -1,7 +1,7 @@
 <?php
 class Forum extends Alpha{
 
-		function Forum($org=false, $org_access = array()){
+		function __construct($org=false, $org_access = array()){
 		  parent::__construct();
 
 			$this->posts_per_page = 10;

@@ -2,7 +2,7 @@
 class UserClass extends Alpha
 {
 
-  function UserClass()
+  function __construct()
   {
     parent::__construct();
   }
@@ -564,7 +564,7 @@ class UserClass extends Alpha
         $app = $this->db->where('app_id', $app['app_id'])->getOne('applications', 'hdd');
         $neededHDD += $app['hdd'];
       }
-		  include("class/class.server.php");
+		  require("../includes/class/class.server.php");
       $server = new Server($this->user['server']);
 
       if ($server->server['total_hdd'] - $server->server['hdd_usage'] < $neededHDD)

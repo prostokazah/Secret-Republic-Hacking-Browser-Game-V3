@@ -106,11 +106,11 @@ require_once('../includes/class//class.admin.php');
 
 	elseif ($GET["view"] == "emailTemplates" && $user["emailTemplatesManager"])
 	{
-		include("emailTemplatesManagement.php");
+		require("emailTemplatesManagement.php");
 	}
 	elseif ($GET["view"] == "attacks" && $user["cardinal"])
 	{
-		include("attacksManagement.php");
+		require("attacksManagement.php");
 	}
     elseif ($GET["view"] == "servers" && $user["cardinal"])
 	{
@@ -137,11 +137,11 @@ require_once('../includes/class//class.admin.php');
 	}
 	elseif ($GET["view"] == "software" && $user["cardinal"])
 	{
-		include("softwareManagement.php");
+		require("softwareManagement.php");
 	}
     elseif ($GET["view"] == "hardware" && $user["cardinal"])
 	{
-		include("hardwareManagement.php");
+		require("hardwareManagement.php");
 	}
 	else
 	if($GET["view"] == "conversations" && $user["cardinal"]){

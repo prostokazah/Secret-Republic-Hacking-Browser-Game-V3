@@ -72,7 +72,7 @@ elseif ($GET['simulate'])
 
 
 
-		include("class/class.battleSystem.php");
+		require("../includes/class/class.battleSystem.php");
 		$battleSystem = new BattleSystem();
 
 

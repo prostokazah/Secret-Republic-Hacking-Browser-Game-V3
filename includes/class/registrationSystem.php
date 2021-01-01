@@ -4,7 +4,7 @@ class RegistrationSystem extends Alpha
 {
 
 
-  function RegistrationSystem($cardinalInstance)
+  function __construct()
   {
     parent::__construct();
   }
@@ -283,7 +283,7 @@ class RegistrationSystem extends Alpha
 
     if ($org['org_id'])
     {
-      include('oclass.php');
+      require('oclass.php');
       $oclass = new Organization($org['org_id']);
 
       $content = 'Beginner Hacker in Alpha Competition';

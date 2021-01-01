@@ -1,7 +1,7 @@
 <?php
 class Blog extends Alpha {
 
-  function Blog() {
+  function __construct() {
     parent::__construct();
   }
 

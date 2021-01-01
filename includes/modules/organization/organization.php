@@ -17,7 +17,7 @@ if ($oclass->organization['id']) {
    
   if ($oclass->organization['myOrg']) {
     
-    include("org_my_org.php");
+    require("org_my_org.php");
     
     
   } //$oclass->organization['myOrg']
@@ -86,7 +86,7 @@ if ($oclass->organization['id']) {
     {
       if ($oclass->organization['wars_inprogress'])
       {
-        include('includes/class/organizationWars.php');
+        require("../includes/class/organizationWars.php');
         $owars = new organizationWars;
       
         $wars = $owars->fetchOrganizationWars($oclass->organization['id']);

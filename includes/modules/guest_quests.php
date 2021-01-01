@@ -3,7 +3,7 @@
 	
 
 
-  include("class/qclass.php");
+  require("../includes/class/qclass.php");
   
   
   $guestTask = $taskclass->check_fetch_task($user, 101, true);

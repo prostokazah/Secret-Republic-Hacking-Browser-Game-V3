@@ -17,7 +17,7 @@ $url = $cardinal->config['url'];
 
 $pageURL = array_filter(explode('/', stripslashes($_SERVER['REQUEST_URI'])));
 
-define("URL_C", stripslashes('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']) . '/');
+define("URL_C", stripslashes('https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']) . '/');
 
 $pageURL = implode ("/", $pageURL);
 
@@ -48,7 +48,7 @@ require_once('../includes/header.php');
 $include = file_exists("../includes/modules/" . $include . ".php") ? "../includes/modules/" . $include . ".php" : '404';
 if ($include == "404")
   $cardinal->show_404();
-else include( $include );
+else require( $include );
 
 
 $tVars["GET"] = $GET;

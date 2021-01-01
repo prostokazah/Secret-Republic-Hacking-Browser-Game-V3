@@ -2,7 +2,7 @@
 
 class organizationWars extends Alpha
 {
-  function organizationWars()
+  function __construct()
   {
     parent::__construct();
   }

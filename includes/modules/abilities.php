@@ -1,6 +1,5 @@
 <?php
  /**
- 	Created by Nenu Adrian ~ 2012 ~ http://nenuadrian.com
  */
 
 
