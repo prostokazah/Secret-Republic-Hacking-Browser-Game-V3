@@ -21,7 +21,7 @@ elseif (isset($_POST['mount']))
 
 	if (isset($_POST['server']))
 	{
-		require("../includes/class/class.server.php');
+		require('../includes/class/class.server.php');
 
 		$server = $db->where('server_id', $_POST['server'])->where('user_id', $user['id'])->getOne('servers');
 
