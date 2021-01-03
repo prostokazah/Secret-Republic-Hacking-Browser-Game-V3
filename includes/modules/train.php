@@ -2,8 +2,8 @@
 
 define('cardinal_system', true);
 $cardinal->mustLogin();
-require_once('includes/header.php');
-require_once('../includes/class//tclass.php');
+require_once('../includes/header.php');
+require_once('../includes/class/tclass.php');
 
   $page_title="Training facility";
 
@@ -70,7 +70,7 @@ require_once('../includes/class//tclass.php');
 			
 			if ($answered)
 			{
-				require("../includes/class/gclass.php');
+				require('../includes/class/gclass.php');
 				$game = new Game();
 				$trainTask['steps']--;
 				if ($trainTask['steps'] <= 0)
@@ -167,7 +167,7 @@ if(!$tclass->trainTask){
 		  else
 		{
 		
-			require("../includes/class/gclass.php');
+			require('../includes/class/gclass.php');
 			$game = new Game();
 			
 			switch ($difficulty)
