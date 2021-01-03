@@ -1,7 +1,7 @@
 <?php
 class Abilities extends Alpha {
 
-  function Abilities() {
+  function __construct() {
 
     parent::__construct();
     global $userData;
