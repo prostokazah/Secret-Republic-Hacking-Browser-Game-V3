@@ -83,14 +83,5 @@
 </div>
 
 
-
-<div class="row-fluid text-center">
-	<iframe  class="youtubeIntro alphaGlow " src="https://www.youtube.com/embed/?list=PLHxmav9PZJKaiBGqv_2gOxpGhKmtY3j7V&loop=1&origin=http://secretrepublic.net&autohide=1&modestbranding=1&showinfo=0" frameborder="0" style="max-width:25%"></iframe>
-
-
-	<iframe class=" alphaGlow" src="https://www.youtube.com/embed/6thfiGb-b7c?origin=http://secretrepublic.net&amp;controls=0&amp;autohide=2&amp;modestbranding=1&amp;showinfo=0" frameborder="0" style="max-width:30%;height:170px;margin:10px">
-	</iframe>
-	<iframe class="youtubeIntro alphaGlow" src="https://www.youtube.com/embed/JE1-Mew1N-E?origin=http://secretrepublic.net&amp;controls=0&amp;autohide=2&amp;modestbranding=1&amp;showinfo=0" frameborder="0" style="max-width:25%">
-	</iframe>
 <br/><br/><br/><br/>
-</div>
+
