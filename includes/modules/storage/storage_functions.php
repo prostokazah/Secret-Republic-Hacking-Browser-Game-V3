@@ -2,7 +2,7 @@
 
 class ServerComponent
 {
-  function ServerComponent($storage_id = false, $user_id = false, $relation_id = false)
+  function __construct($storage_id = false, $user_id = false, $relation_id = false)
   {
     global $db;
     if ($storage_id)
