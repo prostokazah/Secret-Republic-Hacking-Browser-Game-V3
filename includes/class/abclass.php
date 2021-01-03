@@ -23,7 +23,7 @@ class Abilities extends Alpha {
 
 
     }
-    require_once('includes/constants/abilities.php');
+    require_once('../includes/constants/abilities.php');
     $this->abilities = $abilities;
 
 
