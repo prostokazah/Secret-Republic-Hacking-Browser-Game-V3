@@ -44,10 +44,7 @@
 				</div>
 				<br/>
 			</div>
-			<div class="alert alert-warning text-center">
-					This game version is being deprecated. <br/>
-					Try out the new <a href="http://alpha.secretrepublic.net">Secret Republic Alpha</a> (iOS app available). Send us your feedback and we'll keep adding content.
-			</div>
+			<div class="alert alert-info text-center"><strong> <a href="https://github.com/nenuadrian/Secret-Republic-Hacking-Browser-Game-V3" target="_blank">Open Source framework of this game on GitHub</a></strong></div>
 
 		</div>
 
