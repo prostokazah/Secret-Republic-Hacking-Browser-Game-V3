@@ -8,7 +8,7 @@
 					<div class="col-xs-8">
 					<div class="alert alert-error">
 						
-						ERROR recorded. Please contact us at <a href="mailto:bugs@secretrepublic.net">bugs@secretrepublic.net</a> if you think this is a bug!
+						ERROR recorded. Please contact us if you think this is a bug!
 					
 					</div>
 					<div class="alert alert-info">
