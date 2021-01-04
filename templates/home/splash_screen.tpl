@@ -3,22 +3,7 @@
 	<canvas id="can" class="transparent_class"></canvas>
 </div>
 <script src="{$config.url}layout/js/crazyIntro.js"></script>
- {if $showVideo} {include file="dialogs/osx_dialog_box.tpl" id='introVideo' title='SECRET REPUBLIC' content='
-<div class="text-center">
-	<iframe class=" alphaGlow" src="http://www.youtube.com/embed/6thfiGb-b7c?origin=http://secretrepublic.net&amp;controls=0&amp;autohide=2&amp;modestbranding=1&amp;showinfo=0&autoplay=false" frameborder="0" style="width:100%;height:250px;">
-	</iframe>
-</div>
-<div class="row">
-	<div class="col-xs-7">
-		<button type="button" data-dismiss="modal">HOME</button>
-	</div>
-	<div class="col-xs-5">
-		<a href="{$config.url}register"><button type="button">JOIN US</button></a>
-	</div>
-</div>
- '}
-<script type="text/javascript">$(window).load(function(){ $('#myModalintroVideo').modal('show'); });</script>
- {/if}
+ 
 <div class="row text-center" style="margin-top: 50px;">
 	<div class="col-md-4 col-xs-10 col-sm-9 inline mb10 nofloat">
 <br/><br/>
