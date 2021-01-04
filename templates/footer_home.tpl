@@ -44,12 +44,7 @@
  
    
 
-      {if $inParty}
-	  	{include file = "parties/party_chat.tpl"}
-        
-      {/if}
-	  
-	  
+  
       {if !$no_footer && !$detectDevice.mobile}
 	
 		
