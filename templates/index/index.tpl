@@ -3,7 +3,7 @@
 {include file="error_success.tpl"}
 
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-9">
     <div class="row">
       <div class="col-md-3  text-center nopadding"><br/>
         {if $smarty.session.premium.ai}
@@ -178,7 +178,7 @@
 
   </div>
 
-  <div class="col-md-6 ">
+  <div class="col-md-3 ">
 
     <div class="row">
       {if $hackdownRemaining}
@@ -199,7 +199,7 @@
       {/if}
 
 
-      <div class="col-md-6">
+      <div class="col-md-12">
 
 
 
@@ -227,13 +227,7 @@
 
 
       </div>
-      <div class="col-md-6 ">
-
-
-
-       
-      </div>
-
+     
 
 
     </div>
@@ -243,8 +237,4 @@
 
 {$latestArticlesAndForums}
 
-{if 1 == 2 and !$detectDevice.mobile}
-{$rankings}
 
-{$wars}
-{/if}
