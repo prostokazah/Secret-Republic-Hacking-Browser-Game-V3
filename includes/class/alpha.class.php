@@ -29,7 +29,7 @@ class Alpha {
   function generate_captcha_box() {
     return '
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-              <div class="g-recaptcha text-center" data-sitekey="6LdDPAYTAAAAAHU2wNTcBF7b-Cfd7gPpnT3gz72c"></div>
+              <div class="g-recaptcha text-center" data-sitekey="' . $this->config['recaptcha_site_key'] . '"></div>
        ';
   }
   function verify_captcha_response() {
@@ -92,10 +92,7 @@ class Alpha {
           <br/><Br/><br/>
           <a href="http://secretrepublic.com" style="color:#3D98E5; text-decoration:none;">connect to the Grid</a> -
           <a href="http://secretrepublic.net/forum" style="color:#3D98E5; text-decoration:none;">forums</a> -
-          <a href="https://www.facebook.com/theSecretRepublic" style="color:#3D98E5; text-decoration:none;">facebook us</a> -
-          <a href="https://twitter.com/iSecretRepublic" style="color:#3D98E5; text-decoration:none;">twitter us</a> -
-          <a href="https://www.youtube.com/user/TheSecretRepublicCom/" style="color:#3D98E5; text-decoration:none;">youtube</a>
-
+    
 
           <br/><br/>
           <small style="color:#676767;">the secret republic of hackers</small>
@@ -147,17 +144,6 @@ class Alpha {
     return ($ip);
   }
 
-  function getGeo() {
-    $ip = $this->getRealIP();
-    if ($geo = $this->curlURL('http://www.telize.com/geoip/' . $ip)) {
-      $geo = json_decode($geo);
-      return $geo;
-    }
-
-    return (object) array(
-      'ip' => $ip
-    );
-  }
 
   function curlURL($url) {
     // create curl resource
