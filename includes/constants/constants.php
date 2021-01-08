@@ -18,6 +18,8 @@
 		"trainEvery" => 10*60*60,
 		'timeBetweenJobs' => 12 * 60 * 60,
 
+		'recaptcha_site_key' => '',
+		
 		"smtp_host" => "",
 		"smtp_username" => "",
 		"smtp_password" => "",
