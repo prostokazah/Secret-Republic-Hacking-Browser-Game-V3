@@ -5,20 +5,6 @@
 	{if $smarty.get.fortumo}
 
 
-	<script  type="text/javascript">$(document).ready(function(){ jQuery.noConflict();});</script>
-	<script src="//fortumo.com/javascripts/fortumopay.js" type="text/javascript"></script>
-	<div class="row">
-		<div class="col-xs-4">
-			<a href="{$config.url}alpha_coins" class="button text-center">BACK TO A-COINS</a>
-		</div>
-	</div><br/>
-	<div class="well black mb10">
-		Fortumo is not available in all countries and it's much preferred that you use <strong>PAYPAL</strong> instead. Delivery of Alpha Coins will be close to instant but please allow up to 6 hours before reporting a delivery problem.
-	</div><br/><br/>
-	<div class="text-center">
-		<a id="fmp-button" href="#" rel="536a2e22f4be80dd131aebb74fba3ca3/{$user.id}">
-			<img src="//fortumo.com/images/fmp/fortumopay_96x47.png" width="96" height="47" alt="Mobile Payments by Fortumo" border="0" />
-		</a></div>
 
 		{else}
 
@@ -60,44 +46,6 @@
 
 		</div>
 
-		<div class="row">
-							<div class="col-xs-7">
-
-
-
-								<form action="https://www.paypal.com/cgi-bin/webscr" method="post" class="text-center" >
-
-									<!-- Identify your business so that you can collect the payments. -->
-									<input type="hidden" name="business" value="do-not-reply@secretrepublic.net">
-
-									<!-- Specify a Buy Now button. -->
-									<input type="hidden" name="cmd" value="_xclick">
-
-									<!-- Specify details about the item that buyers will purchase. -->
-									<input type="hidden" name="item_name" value="{$user.username} @ 10 A-Coins">
-									<input type="hidden" name="amount" value="1">
-									<input type="hidden" name="currency_code" value="USD">
-									<input type="hidden" name="custom" value="{$user.id}">
-
-									<!-- Prompt buyers to enter their desired quantities. -->
-									<input type="hidden" name="undefined_quantity" value="1">
-
-									<!-- Display the payment button. -->
-									<input type="image" name="submit" border="0"
-									src="{$config.url}layout/img/paypal.png"
-									alt="PayPal - The safer, easier way to pay online" style="max-width:100%;max-height:35px;" >
-
-
-								</form> 
-							</div>
-							<div class="col-xs-5">
-
-								<a href="{$config.url}alpha_coins/fortumo/true">
-									<img src="//fortumo.com/images/fmp/fortumopay_96x47.png" width="96" height="47" alt="Mobile Payments by Fortumo" border="0" />
-								</a>
-
-							</div>
-						</div>
 
 		<br/>
 		{include file="error_success.tpl"}
