@@ -1,8 +1,7 @@
 <?php
 /* Nenu Adrian Mircea 2012+ */
-
 	return [
-		'url' => 'https://secretrepublic-v3.nenuadrian.com/',
+		'url' => $_SERVER['REQUEST_SCHEME'] .  '://' . $_SERVER['HTTP_HOST'] . str_replace('index.php', '', $_SERVER['SCRIPT_NAME']),
 		'tutorialSteps' => 20,
 
 		'gridBrowseZone' => 5,

@@ -8,7 +8,9 @@ require("constants/skills.php");
 
 require('class/userclass.php');
 
-$cardinal->loginSystem();
+if ($cardinal) {
+  $cardinal->loginSystem();
+}
 
 $growl = $myModals = array();
 $success = $warnings = $errors = $info = array();
@@ -145,7 +147,7 @@ else {
 }
 
 
-if ($_SESSION["last_quote"] <= time() - 10 * 60) {
+if ($cardinal && $_SESSION["last_quote"] <= time() - 10 * 60) {
   $_SESSION["last_quote"] = time();
   $quote                  = $db->orderBy("RAND()")->getOne("hacker_quotes");
   $message                = strip_tags('\"' . htmlspecialchars_decode($quote["quote"] . '\"'));

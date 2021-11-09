@@ -59,22 +59,19 @@ V4 is newer, more responsive made with mobile-first in mind, but way less featur
 
 https://github.com/nenuadrian/Secret-Republic-Hacker-Game-ORPBG-Alpha
 
-# Setting up
 
-You need a webserver able to run PHP and an MySQL database (LAMP). e.g. MAMP or WAMP / Apache
+# Simple Setup
 
-1. Import DB.sql into a fresh MySQL db.
+You need a webserver (e.g. MAMP/WAMP/XAMPP) able to run PHP (tested with 7.3) and an MySQL database (LAMP stack).
 
-2. Copy includes/database_info.template.php into includes/database_info.php and add your DB details.
+1. Install `composer` (the PHP dependency management system - `brew install composer` for MacOS) and run `composer install`
 
-3. Open includes/constants/constants.php and configure it with the URL and if you want to setup email sending.
+2. You will need to create an empty Database in MySQL - it's name is not relevant but you will need it in the next step. For MAMP, you would go to `http://localhost:8888/phpMyAdmin5`
 
-4. Run 'composer install' (https://getcomposer.org/).
+3. Visit `http://localhost/public_html/setup` - this may be different if you are using another port or directory structure, e.g. `http://localhost:8888/sr/public_html/setup` and follow the setup process
 
-5. Create an account through the signup form and set your group_id to 1 inside the user_credentials DB table to become a Cardinal (admin).
+![Screenshot](screens/setup.png)
 
-
-You might need to run `SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));` against your MySQL DB in order for the SQL for missions to work
 
 # Cron jobs
 

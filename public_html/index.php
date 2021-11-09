@@ -12,8 +12,18 @@ define('cardinalSystem', true);
 
 require_once('../includes/class/cardinal.php');
 
-$cardinal = new Cardinal();
-$url = $cardinal->config['url'];
+$path = dirname(__FILE__);
+$path = explode('/', $path);
+
+unset( $path[count($path) - 1]);
+
+
+$smarty = new Smarty;
+$smarty->setTemplateDir(implode('/', $path) . '/' . 'templates');
+$smarty->setCompileDir(implode('/', $path) . '/' . 'includes/templates_c');
+$smarty->setCacheDir(implode('/', $path) . '/' . 'includes/cache');
+$smarty->setConfigDir(implode('/', $path) . '/' . 'includes/vendor/smarty/smarty/configs');
+
 
 $pageURL = array_filter(explode('/', stripslashes($_SERVER['REQUEST_URI'])));
 
@@ -21,9 +31,9 @@ define("URL_C", stripslashes('https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQU
 
 $pageURL = implode ("/", $pageURL);
 
-$GETQuery = urldecode($_SERVER['REQUEST_URI']);
-$GETQuery = array_values(array_filter(explode("/", $GETQuery)));
+$GETQuery = isset($_SERVER['PATH_INFO']) ? urldecode($_SERVER['PATH_INFO']) : 'main/main';
 
+$GETQuery = array_values(array_filter(explode("/", $GETQuery)));
 $include = 'main';
 if ($GETQuery) {
 	//$include =  str_replace(array('-','_'), '', $GETQuery[0]);
@@ -33,6 +43,13 @@ if ($GETQuery) {
 
 	for ($i = 0; $i < count($GETQuery); $i += 2)
 		$GET[$GETQuery[$i]] = isset( $GETQuery[$i + 1]) ? $GETQuery[$i + 1] : "" ;
+}
+
+if (!file_exists('../includes/database_info.php')) {
+	$include = 'setup';
+} else {
+	$cardinal = new Cardinal();
+	$url = $cardinal->config['url'];
 }
 
 if ($include != "404" && !file_exists("../includes/modules/" . $include . ".php"))

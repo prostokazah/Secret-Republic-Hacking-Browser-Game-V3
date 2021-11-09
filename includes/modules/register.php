@@ -32,7 +32,7 @@ if(!$logged && $_GET['reset'])
 			$cardinal->loginSystem->changeUserPassword($checkCode["user_id"], $_POST['password'], $credentials["pin"]);
 
 			$db->where('reset_id', $checkCode['reset_id'])->update('user_reset_password', array('used' => time()), 1);
-			$_SESSION['success'] = "Password reseted to new value";
+			$_SESSION['success'] = "Password reset to new value";
 
 			if ($cardinal->loginSystem->loginUser(false, $credentials['username'], $_POST['password']))
 				$cardinal->redirect(URL.'dna');
