@@ -161,16 +161,14 @@ class RegistrationSystem extends Alpha
 	  return true;
   }
 
-
-
-
-  function addUser($username, $password, $email, $pin, $zone)
+  function addUser($username, $password, $email, $pin, $zone, $sendEmail = true)
   {
     global $cardinal;
     $pin = md5($pin);
 
     $gridNode = $this->findAvailableGridNode($zone);
     require_once(ABSPATH . 'includes/class/userclass.php');
+    
     $insertData = array(
       'username' => $username,
       'zone' => $zone,
@@ -183,32 +181,36 @@ class RegistrationSystem extends Alpha
     );
 
     $uid = $this->db->insert('users', $insertData);
-
     if ($uid) {
       $this->addUserToGridNode($uid, $gridNode);
 
       $insertData = array(
 
-        'password' => $cardinal->loginSystem->generatePasswordHash($password, $pin),
+        'password' => password_hash($password, PASSWORD_DEFAULT),
         'group_id' => $this->config['defaultGroup'],
         'email' => $email,
         'pin' => $pin,
         'uid' => $uid
       );
-      $this->db->insert('user_credentials', $insertData);
+     
+      if (!$this->db->insert('user_credentials', $insertData)) {
+        die($this->db->getLastError());
+      }
 
 	  $this->logUserRegistration($uid);
 
 
-      	$this->sendWelcomeStuffAndBonuses($username, $email, $uid, $password, $zone);
-
+      	$this->sendWelcomeStuffAndBonuses($username, $email, $uid, $password, $zone, $sendEmail);
+        if ($cardinal->loginSystem)
       	$cardinal->loginSystem->loginUser(false, $username, $password);
 
       	return $uid;
 
 
 
-    } //$uid
+    }  else {
+      die($this->db->getLastError());
+    }
 
 
   } // addUser
@@ -238,7 +240,7 @@ class RegistrationSystem extends Alpha
   /**************************************************
     AFTER REGISTRATION STUFF
    *************************************************/
-  function sendWelcomeStuffAndBonuses($username, $user_email, $user_id, $password, $zone)
+  function sendWelcomeStuffAndBonuses($username, $user_email, $user_id, $password, $zone, $sendEmail = true)
   {
      $this->giveZoneBonus($user_id, $username, $zone);
 
@@ -266,8 +268,7 @@ class RegistrationSystem extends Alpha
 		$this->sendEmail($email);
 
 		// EMAIL CONFIRM
-		$this->sendEmailConfirmation($user_id);
-
+    if ($sendEmail) $this->sendEmailConfirmation($user_id);
   }
   function giveZoneBonus($user_id, $username, $zone)
   {

@@ -178,17 +178,9 @@ class LoginSystem extends Alpha
     return isset($password[3]) && !isset($password[20]);
   } // validatePassword
 
-
-
   function generatePasswordHash($password, $secretCode)
   {
-    $hash[] = md5($password);
-    $hash[] = md5($password . $secretCode);
-    $hash[] = md5($password) . sha1($secretCode . $password) . md5(md5($password));
-    $hash[] = sha1($password . $secretCode . $password);
-    $hash[] = md5($hash[3] . $hash[0] . $hash[1] . $hash[2] . sha1($hash[3] . $hash[2]));
-    $hash[] = sha1($hash[0] . $hash[1] . $hash[2] . $hash[3]) . md5($hash[4] . $hash[4]) . sha1($secretCode);
-    return sha1($hash[0] . $hash[1] . $hash[2] . $hash[3] . $hash[4] . $hash[5] . md5($secretCode));
+    return password_hash($password . $secretCode, PASSWORD_DEFAULT);
   } // generatePasswordHash
 
   function generateSessionUniqueId($password, $secretCode)
@@ -245,8 +237,7 @@ class LoginSystem extends Alpha
 
         if (!$this->errors)
           if ($userCredentials['group_id']) {
-
-            if ($socialLogin || $userCredentials['password'] == $this->generatePasswordHash($password, $userCredentials['pin'])) {
+            if ($socialLogin || password_verify($password , $userCredentials['password'])) {
               $this->startUserSession($userData['id'], $username, $userCredentials, $ip);
 
               $_SESSION['voice'] = 'accessgranted';

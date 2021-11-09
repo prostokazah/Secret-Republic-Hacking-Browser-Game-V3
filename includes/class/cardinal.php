@@ -9,20 +9,21 @@ CARDINAL - ONE OF THE MAIN CLASSES OF THE SYSTEM - N.A.M.
  */
 
 require('alpha.class.php');
+$path = dirname(__FILE__);
+$path = explode('/', $path);
+
+unset($path[count($path) - 1], $path[count($path) - 1]);
+
+define('ABSPATH', implode('/', $path) . '/');
 
 class Cardinal extends Alpha {
   function __construct() {
-    global $page, $smarty, $url;
+    global $page, $url;
 
     parent::__construct();
 
     // find absolute path for future inclusions
-    $path = dirname(__FILE__);
-    $path = explode('/', $path);
-
-    unset($path[count($path) - 1], $path[count($path) - 1]);
-
-    define('ABSPATH', implode('/', $path) . '/');
+  
 
     $sek     = md5(time() . time() . time());
 
@@ -38,11 +39,7 @@ class Cardinal extends Alpha {
 
     $this->page_start = array_sum(explode(' ', microtime()));
 
-    $smarty = new Smarty;
-    $smarty->setTemplateDir(ABSPATH . 'templates');
-    $smarty->setCompileDir(ABSPATH . 'includes/templates_c');
-    $smarty->setCacheDir(ABSPATH . 'includes/cache');
-    $smarty->setConfigDir(ABSPATH . 'includes/vendor/smarty/smarty/configs');
+
 
     $this->config = require(ABSPATH . 'includes/constants/constants.php');
 
