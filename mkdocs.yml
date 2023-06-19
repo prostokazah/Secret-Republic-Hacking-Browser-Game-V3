@@ -1,2 +1,2 @@
 extra_javascript:
-    - js/image-carousel.js 
+    - carousel.js 
